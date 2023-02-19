@@ -35,7 +35,7 @@
                     </svg>
                 </div>
 
-                <div id=app>
+                <div id="app">
                     <Hello name="Serg" />
                 </div>
 
