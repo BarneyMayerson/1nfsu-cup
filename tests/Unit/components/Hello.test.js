@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import Hello from "@/components/Hello.vue";
+import Hello from "@/Components/Hello.vue";
 
 describe("Hello.vue", () => {
   it("rendes a name", () => {
