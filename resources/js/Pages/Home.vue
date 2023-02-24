@@ -11,11 +11,6 @@ const toggleDark = useToggle(isDark);
 <template>
   <Head title="Home" />
 
-  <div class="grid justify-center">
-    <div class="my-8 bg-indigo-200 p-2">
-      <AppLogo class="h-12 w-full" />
-    </div>
-  </div>
   <div class="mt-8">
     <header aria-label="Site Header" class="bg-white dark:bg-gray-900">
       <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
