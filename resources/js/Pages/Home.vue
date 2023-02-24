@@ -2,6 +2,7 @@
 import { useDark, useToggle } from "@vueuse/core";
 import { Head } from "@inertiajs/vue3";
 import AppLogo from "@/Components/AppLogo.vue";
+import ToggleMode from "@/Components/ToggleMode.vue";
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -88,12 +89,7 @@ const toggleDark = useToggle(isDark);
 
           <div class="flex items-center gap-4">
             <div class="sm:flex sm:gap-4">
-              <button
-                @click="toggleDark()"
-                class="border bg-white px-4 py-2 text-gray-900 dark:bg-gray-900 dark:text-white"
-              >
-                Toggle Mode
-              </button>
+              <ToggleMode />
             </div>
             <div class="sm:flex sm:gap-4">
               <a
