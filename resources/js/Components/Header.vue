@@ -1,6 +1,7 @@
 <script setup>
 import AppLogo from "@/Components/AppLogo.vue";
 import ToggleMode from "@/Components/ToggleMode.vue";
+import MainNav from "@/Navigations/MainNav.vue";
 </script>
 <template>
   <header aria-label="Site Header">
@@ -14,63 +15,7 @@ import ToggleMode from "@/Components/ToggleMode.vue";
         </div>
 
         <div class="hidden md:block">
-          <nav aria-label="Site Nav">
-            <ul class="flex items-center gap-6 text-sm">
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="/"
-                >
-                  About
-                </a>
-              </li>
-
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="/"
-                >
-                  Careers
-                </a>
-              </li>
-
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="/"
-                >
-                  History
-                </a>
-              </li>
-
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="/"
-                >
-                  Services
-                </a>
-              </li>
-
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="/"
-                >
-                  Projects
-                </a>
-              </li>
-
-              <li>
-                <a
-                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="/"
-                >
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <MainNav />
         </div>
 
         <div class="flex items-center gap-4">
