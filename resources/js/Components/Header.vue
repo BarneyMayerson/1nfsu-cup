@@ -3,11 +3,11 @@ import AppLogo from "@/Components/AppLogo.vue";
 import ToggleMode from "@/Components/ToggleMode.vue";
 </script>
 <template>
-  <header aria-label="Site Header" class="bg-white dark:bg-sky-900">
-    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+  <header aria-label="Site Header">
+    <div class="container mx-auto">
       <div class="flex h-16 items-center justify-between">
         <div class="md:flex md:items-center md:gap-12">
-          <a class="block text-teal-600 dark:text-teal-600" href="/">
+          <a class="block" href="/">
             <span class="sr-only">Home</span>
             <AppLogo class="h-10 w-full" />
           </a>
@@ -79,7 +79,7 @@ import ToggleMode from "@/Components/ToggleMode.vue";
           </div>
           <div class="sm:flex sm:gap-4">
             <a
-              class="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500"
+              class="rounded-md bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-emerald-500"
               href="/"
             >
               Login
@@ -87,7 +87,7 @@ import ToggleMode from "@/Components/ToggleMode.vue";
 
             <div class="hidden sm:flex">
               <a
-                class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-emerald-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
                 href="/"
               >
                 Register
