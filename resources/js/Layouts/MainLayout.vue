@@ -1,7 +1,15 @@
+<script setup>
+import Header from "@/Components/Header.vue";
+</script>
+
 <template>
-  <header class="bg-green-50 px-8 py-6">Top Navbar goes here...</header>
+  <div
+    class="supports-backdrop-blur:bg-white/60 sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur transition-colors duration-500 dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 lg:border-b lg:border-slate-900/10"
+  >
+    <Header />
+  </div>
   <main class="px-8 py-6">
     <slot />
   </main>
-  <footer class="bg-sky-50 px-8 py-6">Footer goes gere...</footer>
+  <footer class="px-8 py-6">Footer goes gere...</footer>
 </template>
