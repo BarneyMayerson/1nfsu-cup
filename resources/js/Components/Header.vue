@@ -3,6 +3,7 @@ import AppLogo from "@/Components/AppLogo.vue";
 import ToggleMode from "@/Components/ToggleMode.vue";
 import MainNav from "@/Navigations/MainNav.vue";
 </script>
+
 <template>
   <header aria-label="Site Header">
     <div class="container mx-auto">
