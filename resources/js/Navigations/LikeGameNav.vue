@@ -22,11 +22,13 @@ import SpinCircle from "@/Components/NFSUBrandTrivia/SpinCircle.vue";
         Main Menu
       </h3>
     </div>
-    <nav class="space-y-2">
-      <LikeGameMenuItem>Tourneys</LikeGameMenuItem>
-      <LikeGameMenuItem>Competitions</LikeGameMenuItem>
-      <LikeGameMenuItem>Standings</LikeGameMenuItem>
-      <LikeGameMenuItem>Game Server</LikeGameMenuItem>
-    </nav>
+    <div class="flex justify-end">
+      <nav class="space-y-2">
+        <LikeGameMenuItem>Tourneys</LikeGameMenuItem>
+        <LikeGameMenuItem>Competitions</LikeGameMenuItem>
+        <LikeGameMenuItem>Standings</LikeGameMenuItem>
+        <LikeGameMenuItem>Game Server</LikeGameMenuItem>
+      </nav>
+    </div>
   </div>
 </template>
