@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const theme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   darkMode: "class",
   content: [
@@ -7,7 +9,12 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: (theme) => ({
+        "nfsu-dark": "url('/storage/static/bg-dark.webp')",
+        "nfsu-light": "url('/storage/static/bg-light.jpg')",
+      }),
+    },
   },
   plugins: [],
 };
