@@ -15,7 +15,7 @@ defineProps({
 });
 </script>
 <template>
-  <svg :class="`h-14 w-14 rotate-${initiatRotate}`">
+  <svg class="h-14 w-14">
     <circle
       class="text-gray-300 dark:text-gray-500"
       fill="transparent"
@@ -42,33 +42,3 @@ defineProps({
     />
   </svg>
 </template>
-
-<style scoped>
-.animate-fade {
-  -webkit-animation: fade 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation: fade 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@-webkit-keyframes fade {
-  0% {
-    opacity: 0.15;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.15;
-  }
-}
-@keyframes fade {
-  0% {
-    opacity: 0.15;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.15;
-  }
-}
-</style>
