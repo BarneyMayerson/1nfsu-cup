@@ -18,7 +18,7 @@ export default {
       <div class="mx-auto lg:grid lg:grid-cols-12 lg:gap-x-8">
         <div class="pt-4 lg:col-span-8 lg:px-0 lg:pt-12 xl:col-span-9">
           <div class="relative mx-auto lg:mx-0">
-            <div class="border bg-white">
+            <div class="border border-sky-400 shadow-lg dark:border-sky-800">
               <img
                 src="storage/static/grand-station.webp"
                 alt="Grand Station"
@@ -26,19 +26,21 @@ export default {
               />
             </div>
             <div
-              class="absolute bottom-2 px-4 text-sky-300 dark:text-sky-400 lg:px-8"
+              class="absolute bottom-24 px-4 text-sky-300 dark:text-sky-400 lg:px-8"
             >
               <h1
-                class="mt-24 text-4xl font-bold tracking-tight sm:mt-10 sm:text-6xl"
+                class="text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl xl:text-5xl"
               >
-                Data to enrich your online business
+                Communication, competitions and tourneys for those who love
+                <br />NFS Underground
               </h1>
-              <p class="mt-6 text-lg leading-8">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat aliqua.
-              </p>
             </div>
+            <p
+              class="mt-6 px-4 text-base sm:text-lg md:text-xl lg:px-8 lg:text-2xl xl:text-3xl"
+            >
+              If it is important to you, you will find a way. If not, you’ll
+              find an excuse.
+            </p>
           </div>
         </div>
         <div
