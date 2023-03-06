@@ -26,13 +26,13 @@ export default {
               />
             </div>
             <div
-              class="absolute bottom-24 px-4 text-sky-300 dark:text-sky-400 lg:px-8"
+              class="mt-6 px-4 text-sky-300 dark:text-sky-400 md:absolute md:bottom-20 md:mt-0 lg:bottom-24 lg:px-8 xl:bottom-28"
             >
               <h1
                 class="text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl xl:text-5xl"
               >
                 Communication, competitions and tourneys for those who love
-                <br />NFS Underground
+                NFS&nbsp;Underground
               </h1>
             </div>
             <p
