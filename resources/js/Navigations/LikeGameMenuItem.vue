@@ -5,8 +5,8 @@ const hovered = ref(false);
 
 const containerClasses = computed(() => {
   return hovered.value
-    ? "relative h-16 xl:w-96 w-80 border-b-[12px] border-t-[12px]"
-    : "relative h-16 xl:w-96 w-80 py-[12px]";
+    ? "relative h-16  w-80 border-b-[12px] border-t-[12px]"
+    : "relative h-16  w-80 py-[12px]";
 });
 </script>
 
