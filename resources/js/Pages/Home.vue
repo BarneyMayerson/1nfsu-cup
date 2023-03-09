@@ -1,6 +1,7 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
+import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 </script>
 
 <script>
@@ -49,6 +50,10 @@ export default {
           <LikeGameNav />
         </div>
       </div>
+    </div>
+
+    <div class="container mx-auto mt-8">
+      <FloatLabelInput id="email" label="Email" hint="The hint goes here" />
     </div>
   </main>
 </template>
