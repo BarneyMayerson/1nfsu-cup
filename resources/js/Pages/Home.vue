@@ -1,7 +1,11 @@
 <script setup>
+import { ref } from "vue";
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
 import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
+import PasswordInput from "@/Components/Shared/PasswordInput.vue";
+
+const password = ref();
 </script>
 
 <script>
@@ -54,6 +58,9 @@ export default {
 
     <div class="container mx-auto mt-8">
       <FloatLabelInput id="email" label="Email" hint="The hint goes here" />
+    </div>
+    <div class="container mx-auto mt-8">
+      <PasswordInput id="password" label="Password" v-model="password" />
     </div>
   </main>
 </template>
