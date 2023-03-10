@@ -4,6 +4,8 @@ import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
 import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 import PasswordInput from "@/Components/Shared/PasswordInput.vue";
+import PrimaryButton from "@/Components/Shared/PrimaryLikeGameButton.vue";
+import SecondaryButton from "@/Components/Shared/SecondaryLikeGameButton.vue";
 
 const password = ref();
 </script>
@@ -56,11 +58,13 @@ export default {
       </div>
     </div>
 
-    <div class="container mx-auto mt-8">
+    <div class="container mx-auto space-y-8">
       <FloatLabelInput id="email" label="Email" hint="The hint goes here" />
-    </div>
-    <div class="container mx-auto mt-8">
       <PasswordInput id="password" label="Password" v-model="password" />
+      <div class="flex items-center space-x-8">
+        <PrimaryButton>Primary</PrimaryButton>
+        <SecondaryButton>Secondary</SecondaryButton>
+      </div>
     </div>
   </main>
 </template>
