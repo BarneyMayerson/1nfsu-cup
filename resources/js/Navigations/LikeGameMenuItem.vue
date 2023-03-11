@@ -14,11 +14,11 @@ const containerClasses = computed(() => {
   <div :class="containerClasses">
     <div
       v-if="hovered"
-      class="absolute -left-[6px] -top-[12px] h-[12px] w-[12px] skew-x-[45deg] bg-white dark:bg-sky-900"
+      class="absolute -left-[6px] -top-[12px] h-[12px] w-[12px] skew-x-[45deg] bg-white"
     ></div>
     <div
       v-if="hovered"
-      class="absolute -left-[6px] -bottom-[12px] h-[12px] w-[12px] -skew-x-[45deg] bg-white dark:bg-sky-900"
+      class="absolute -left-[6px] -bottom-[12px] h-[12px] w-[12px] -skew-x-[45deg] bg-white"
     ></div>
     <div
       v-if="hovered"
