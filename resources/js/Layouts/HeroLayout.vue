@@ -1,4 +1,5 @@
 <script setup>
+import { Link } from "@inertiajs/vue3";
 import AppLogo from "@/Components/AppLogo.vue";
 import ToggleMode from "@/Components/ToggleMode.vue";
 import Footer from "@/Components/Footer.vue";
@@ -12,10 +13,10 @@ import Footer from "@/Components/Footer.vue";
       <div class="container mx-auto">
         <div class="flex h-16 items-center justify-between">
           <div class="md:flex md:items-center md:gap-12">
-            <a class="block" href="/">
+            <Link class="block" href="/">
               <span class="sr-only">Home</span>
               <AppLogo class="h-10 w-full" />
-            </a>
+            </Link>
           </div>
 
           <div class="flex items-center gap-4">
@@ -23,20 +24,22 @@ import Footer from "@/Components/Footer.vue";
               <ToggleMode />
             </div>
             <div class="sm:flex sm:gap-4">
-              <a
+              <Link
                 class="rounded-md bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-emerald-500"
-                href="/"
+                href="/login"
+                as="button"
               >
                 Login
-              </a>
+              </Link>
 
               <div class="hidden sm:flex">
-                <a
+                <Link
                   class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-emerald-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
-                  href="/"
+                  href="/register"
+                  as="button"
                 >
                   Register
-                </a>
+                </Link>
               </div>
             </div>
 
