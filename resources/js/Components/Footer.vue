@@ -1,5 +1,6 @@
 <script setup>
 import AppLogo from "@/Components/AppLogo.vue";
+import RegularLink from "@/Components/Shared/RegularLink.vue";
 </script>
 
 <template>
@@ -7,10 +8,10 @@ import AppLogo from "@/Components/AppLogo.vue";
     <div class="container mx-auto">
       <div class="grid grid-cols-1 gap-8 px-4 sm:px-0 lg:grid-cols-3">
         <div>
-          <a href="/">
+          <RegularLink href="/">
             <span class="sr-only">Home</span>
             <AppLogo class="h-16 w-full" />
-          </a>
+          </RegularLink>
 
           <p class="mt-8">
             Making the world a better place through recreating the entire
@@ -20,14 +21,8 @@ import AppLogo from "@/Components/AppLogo.vue";
           <div class="mt-6 flex justify-center">
             <ul class="flex gap-6">
               <li>
-                <a
-                  href="/"
-                  rel="noreferrer"
-                  target="_blank"
-                  class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                >
+                <RegularLink href="/" rel="noreferrer" target="_blank">
                   <span class="sr-only">Facebook</span>
-
                   <svg
                     class="h-6 w-6"
                     fill="currentColor"
@@ -40,18 +35,12 @@ import AppLogo from "@/Components/AppLogo.vue";
                       clip-rule="evenodd"
                     />
                   </svg>
-                </a>
+                </RegularLink>
               </li>
 
               <li>
-                <a
-                  href="/"
-                  rel="noreferrer"
-                  target="_blank"
-                  class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                >
+                <RegularLink href="/" rel="noreferrer" target="_blank">
                   <span class="sr-only">Instagram</span>
-
                   <svg
                     class="h-6 w-6"
                     fill="currentColor"
@@ -64,18 +53,12 @@ import AppLogo from "@/Components/AppLogo.vue";
                       clip-rule="evenodd"
                     />
                   </svg>
-                </a>
+                </RegularLink>
               </li>
 
               <li>
-                <a
-                  href="/"
-                  rel="noreferrer"
-                  target="_blank"
-                  class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                >
+                <RegularLink href="/" rel="noreferrer" target="_blank">
                   <span class="sr-only">Twitter</span>
-
                   <svg
                     class="h-6 w-6"
                     fill="currentColor"
@@ -86,18 +69,12 @@ import AppLogo from "@/Components/AppLogo.vue";
                       d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
                     />
                   </svg>
-                </a>
+                </RegularLink>
               </li>
 
               <li>
-                <a
-                  href="/"
-                  rel="noreferrer"
-                  target="_blank"
-                  class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                >
+                <RegularLink href="/" rel="noreferrer" target="_blank">
                   <span class="sr-only">GitHub</span>
-
                   <svg
                     class="h-6 w-6"
                     fill="currentColor"
@@ -110,7 +87,7 @@ import AppLogo from "@/Components/AppLogo.vue";
                       clip-rule="evenodd"
                     />
                   </svg>
-                </a>
+                </RegularLink>
               </li>
             </ul>
           </div>
@@ -124,50 +101,10 @@ import AppLogo from "@/Components/AppLogo.vue";
 
             <nav aria-label="Footer Navigation - Services" class="mt-6">
               <ul class="space-y-4 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    1on1 Coaching
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Company Review
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Accounts Review
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    HR Consulting
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    SEO Optimisation
-                  </a>
-                </li>
+                <li><RegularLink href="#">1 on 1 Coaching</RegularLink></li>
+                <li><RegularLink href="#">Company Review</RegularLink></li>
+                <li><RegularLink href="#">Accounts Review</RegularLink></li>
+                <li><RegularLink href="#">HR Consulting</RegularLink></li>
               </ul>
             </nav>
           </div>
@@ -177,32 +114,9 @@ import AppLogo from "@/Components/AppLogo.vue";
 
             <nav aria-label="Footer Navigation - Company" class="mt-6">
               <ul class="space-y-4 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    About
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Meet the Team
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Accounts Review
-                  </a>
-                </li>
+                <li><RegularLink href="#">About</RegularLink></li>
+                <li><RegularLink href="#">Meet the Team</RegularLink></li>
+                <li><RegularLink href="#">Accounts Review</RegularLink></li>
               </ul>
             </nav>
           </div>
@@ -214,32 +128,9 @@ import AppLogo from "@/Components/AppLogo.vue";
 
             <nav aria-label="Footer Navigation - Company" class="mt-6">
               <ul class="space-y-4 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Contact
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    FAQs
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Live Chat
-                  </a>
-                </li>
+                <li><RegularLink href="#">Contact</RegularLink></li>
+                <li><RegularLink href="#">FAQs</RegularLink></li>
+                <li><RegularLink href="#">Live Chat</RegularLink></li>
               </ul>
             </nav>
           </div>
@@ -249,48 +140,17 @@ import AppLogo from "@/Components/AppLogo.vue";
 
             <nav aria-label="Footer Navigation - Legal" class="mt-6">
               <ul class="space-y-4 text-sm">
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Accessibility
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Returns Policy
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Refund Policy
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                  >
-                    Hiring Statistics
-                  </a>
-                </li>
+                <li><RegularLink href="#">Accessibility</RegularLink></li>
+                <li><RegularLink href="#">Return Policy</RegularLink></li>
+                <li><RegularLink href="#">Refund Policy</RegularLink></li>
+                <li><RegularLink href="#">Hiring Statistics</RegularLink></li>
               </ul>
             </nav>
           </div>
         </div>
       </div>
 
-      <p class="mt-4 px-4 text-xs sm:mt-0 sm:px-0">
+      <p class="mt-4 px-4 text-xs sm:mt-8 sm:px-0">
         &copy; 2023. NFSU Cup developer and all registered users.
       </p>
     </div>

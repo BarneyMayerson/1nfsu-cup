@@ -1,6 +1,7 @@
 <script setup>
-import { Head, Link } from "@inertiajs/vue3";
+import { Head } from "@inertiajs/vue3";
 import RegisterForm from "@/Forms/Auth/RegisterForm.vue";
+import RegularLink from "@/Components/Shared/RegularLink.vue";
 </script>
 
 <template>
@@ -9,6 +10,8 @@ import RegisterForm from "@/Forms/Auth/RegisterForm.vue";
     <RegisterForm />
   </div>
   <div class="flex justify-center">
-    <Link href="/login" as="button">Already Have an Account?</Link>
+    <RegularLink href="/login" as="button">
+      Already Have an Account?
+    </RegularLink>
   </div>
 </template>
