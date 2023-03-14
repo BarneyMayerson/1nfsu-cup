@@ -1,5 +1,6 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
+import { Modal } from "momentum-modal";
 import AppLogo from "@/Components/AppLogo.vue";
 import ToggleMode from "@/Components/ToggleMode.vue";
 import Footer from "@/Components/Footer.vue";
@@ -76,4 +77,5 @@ import Footer from "@/Components/Footer.vue";
   >
     <Footer />
   </div>
+  <Modal />
 </template>

@@ -3,6 +3,8 @@ import "../css/app.css";
 
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import { modal } from "momentum-modal";
 import MainLayout from "@/Layouts/MainLayout.vue";
 
 const appName =
@@ -18,6 +20,10 @@ createInertiaApp({
   },
   setup({ el, App, props, plugin }) {
     return createApp({ render: () => h(App, props) })
+      .use(modal, {
+        resolve: (name) =>
+          resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),
+      })
       .use(plugin)
       .mount(el);
   },
