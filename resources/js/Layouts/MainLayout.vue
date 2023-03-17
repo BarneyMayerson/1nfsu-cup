@@ -1,5 +1,7 @@
 <script setup>
 import Header from "@/Components/Header.vue";
+import Footer from "@/Components/Footer.vue";
+import { Modal } from "momentum-modal";
 </script>
 
 <template>
@@ -11,5 +13,6 @@ import Header from "@/Components/Header.vue";
   <main class="px-8 py-6">
     <slot />
   </main>
-  <footer class="px-8 py-6">Footer goes gere...</footer>
+  <Footer />
+  <Modal />
 </template>
