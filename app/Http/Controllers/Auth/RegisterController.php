@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
-use Inertia\Response;
+use Momentum\Modal\Modal;
 
 class RegisterController extends Controller
 {
-    public function create(): Response
+    public function create(): Modal
     {
-        return Inertia::render("Auth/Register");
+        return Inertia::modal("Auth/Register")->baseRoute("home");
     }
 
     public function store(Request $request): RedirectResponse
