@@ -1,5 +1,13 @@
 <script setup>
 import { computed, ref } from "vue";
+import { Link } from "@inertiajs/vue3";
+
+defineProps({
+  href: {
+    type: String,
+    required: true,
+  },
+});
 
 const hovered = ref(false);
 
@@ -24,8 +32,8 @@ const containerClasses = computed(() => {
       v-if="hovered"
       class="animate-blinking absolute -right-[21px] -top-[2px] -my-2.5 h-[64px] w-5 bg-neutral-500"
     ></div>
-    <button
-      type="button"
+    <Link
+      :href="href"
       @focusin="hovered = true"
       @focusout="hovered = false"
       @mouseover="hovered = true"
@@ -33,7 +41,7 @@ const containerClasses = computed(() => {
       class="flex w-full justify-end pr-2 font-sans text-3xl font-medium uppercase italic tracking-wide text-sky-600 hover:text-stone-900 focus:text-stone-900 focus:outline-none dark:text-sky-400 dark:hover:text-stone-200 dark:focus:text-stone-200"
     >
       <slot></slot>
-    </button>
+    </Link>
   </div>
 </template>
 

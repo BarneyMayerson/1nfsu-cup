@@ -24,10 +24,10 @@ import SpinCircle from "@/Components/NFSUBrandTrivia/SpinCircle.vue";
     </div>
     <div class="flex justify-end">
       <nav class="space-y-2">
-        <LikeGameMenuItem>Tourneys</LikeGameMenuItem>
-        <LikeGameMenuItem>Competitions</LikeGameMenuItem>
-        <LikeGameMenuItem>Standings</LikeGameMenuItem>
-        <LikeGameMenuItem>Game Server</LikeGameMenuItem>
+        <LikeGameMenuItem href="competitions">Competitions</LikeGameMenuItem>
+        <LikeGameMenuItem href="tourneys">Tourneys</LikeGameMenuItem>
+        <LikeGameMenuItem href="standings">Standings</LikeGameMenuItem>
+        <LikeGameMenuItem href="game-server">Game Server</LikeGameMenuItem>
       </nav>
     </div>
   </div>

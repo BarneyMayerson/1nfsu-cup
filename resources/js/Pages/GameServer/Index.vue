@@ -5,6 +5,6 @@ import { Head } from "@inertiajs/vue3";
 <template>
   <Head title="Tourneys" />
   <div class="container mx-auto">
-    <main>TourneysGame Server Main Frontend Page Goes Here ...</main>
+    <main>Game Server Main Frontend Page Goes Here ...</main>
   </div>
 </template>
