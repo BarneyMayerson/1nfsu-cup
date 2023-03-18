@@ -10,7 +10,6 @@ class TourneysController extends Controller
 {
     public function index(): Response
     {
-        sleep(3);
         return Inertia::render("Tourneys/Index");
     }
 }
