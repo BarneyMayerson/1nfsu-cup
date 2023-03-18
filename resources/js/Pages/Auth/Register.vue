@@ -21,11 +21,7 @@ export default {
       <RegisterForm />
     </div>
     <div class="mt-8 flex justify-center">
-      <RegularLink href="/login" as="button">
-        Already Have an Account?
-      </RegularLink>
+      <RegularLink href="/login"> Already Have an Account? </RegularLink>
     </div>
   </Modal>
-  <!-- 
-  <-->
 </template>

@@ -7,13 +7,13 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
-use Inertia\Response;
+use Momentum\Modal\Modal;
 
 class AuthenticatedSessionController extends Controller
 {
-    public function create(): Response
+    public function create(): Modal
     {
-        return Inertia::render("Auth/Login");
+        return Inertia::modal("Auth/Login")->baseRoute("home");
     }
 
     public function store(LoginRequest $request): RedirectResponse
