@@ -17,7 +17,7 @@ export default {
   <Head title="login" />
   <div class="flex justify-center py-6">
     <Modal>
-      <template #title>Register New Account</template>
+      <template #title>Welcome Back!</template>
       <div class="mt-8">
         <LoginForm />
       </div>

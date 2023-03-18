@@ -4,6 +4,9 @@ import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 import PasswordInput from "@/Components/Shared/PasswordInput.vue";
 import PrimaryLikeGameButton from "@/Components/Shared/PrimaryLikeGameButton.vue";
 import SecondaryLikeGameButton from "@/Components/Shared/SecondaryLikeGameButton.vue";
+import { useModal } from "momentum-modal";
+
+const { close } = useModal();
 
 const form = useForm("LoginForm", {
   email: "",
@@ -35,6 +38,7 @@ function submit() {
     <div class="flex items-center justify-end space-x-2">
       <SecondaryLikeGameButton
         id="cancel-button"
+        @click="close"
         :class="{ 'opacity-50': form.processing }"
         :disabled="form.processing"
       >
