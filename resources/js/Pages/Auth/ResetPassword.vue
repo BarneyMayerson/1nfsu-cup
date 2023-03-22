@@ -1,5 +1,6 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
+import ResetPasswordForm from "@/Forms/Auth/PasswordResetForm.vue";
 
 defineProps({
   email: String,
@@ -7,11 +8,18 @@ defineProps({
 });
 </script>
 
+<script>
+import HeroLayout from "@/Layouts/HeroLayout.vue";
+
+export default {
+  layout: HeroLayout,
+};
+</script>
+
 <template>
   <Head title="Reset Password" />
-  <div class="flex justify-center py-6">
-    <p>Reset password page goes here...</p>
-    <div class="mt-6 block">email = {{ email }}</div>
-    <div class="mt-6 block">token = {{ token }}</div>
+  <p class="mt-4">Check out email address and choose new password.</p>
+  <div class="mt-16">
+    <ResetPasswordForm :email="email" :token="token" />
   </div>
 </template>
