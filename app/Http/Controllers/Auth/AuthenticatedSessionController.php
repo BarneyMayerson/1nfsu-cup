@@ -13,7 +13,9 @@ class AuthenticatedSessionController extends Controller
 {
     public function create(): Modal
     {
-        return Inertia::modal("Auth/Login")->baseRoute("home");
+        return Inertia::modal("Auth/Login")
+            ->with(["status" => session("status")])
+            ->baseRoute("home");
     }
 
     public function store(LoginRequest $request): RedirectResponse

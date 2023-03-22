@@ -14,9 +14,9 @@ class PasswordResetLinkController extends Controller
 {
     public function create(): Modal
     {
-        return Inertia::modal("Auth/ForgotPassword", [
-            "status" => session("status"),
-        ])->baseRoute("home");
+        return Inertia::modal("Auth/ForgotPassword")
+            ->with(["status" => session("status")])
+            ->baseRoute("login");
     }
 
     /**
