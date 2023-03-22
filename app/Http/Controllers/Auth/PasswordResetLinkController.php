@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
-use Inertia\Response;
+use Momentum\Modal\Modal;
 
 class PasswordResetLinkController extends Controller
 {
-    public function create(): Response
+    public function create(): Modal
     {
-        return Inertia::render("Auth/ForgotPassword", [
+        return Inertia::modal("Auth/ForgotPassword", [
             "status" => session("status"),
-        ]);
+        ])->baseRoute("home");
     }
 
     /**
