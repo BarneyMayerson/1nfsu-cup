@@ -1,12 +1,12 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
-import ResetPasswordForm from "@/Forms/Auth/ResetPasswordForm.vue";
+import PasswordResetForm from "@/Forms/Auth/PasswordResetForm.vue";
 
 describe("ResetPasswordForm.vue", () => {
   let wrapper = null;
 
   beforeEach(() => {
-    wrapper = mount(ResetPasswordForm);
+    wrapper = mount(PasswordResetForm);
   });
 
   it("has email input", () => {
@@ -18,6 +18,6 @@ describe("ResetPasswordForm.vue", () => {
   });
 
   it("has password confirmation input", () => {
-    expect(wrapper.find("#password_confirmation").exists()).toBe(true);
+    expect(wrapper.find("#password-confirmation").exists()).toBe(true);
   });
 });
