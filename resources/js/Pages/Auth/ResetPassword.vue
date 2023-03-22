@@ -8,14 +8,6 @@ defineProps({
 });
 </script>
 
-<script>
-import HeroLayout from "@/Layouts/HeroLayout.vue";
-
-export default {
-  layout: HeroLayout,
-};
-</script>
-
 <template>
   <Head title="Reset Password" />
   <p class="mt-4">Check out email address and choose new password.</p>
