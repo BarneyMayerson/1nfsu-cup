@@ -17,7 +17,7 @@ export default {
   <Head title="Register" />
   <Modal>
     <template #title>Register New Account</template>
-    <div class="mt-8">
+    <div class="mt-16">
       <RegisterForm />
     </div>
     <div class="mt-8 flex justify-center">

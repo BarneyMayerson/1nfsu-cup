@@ -18,7 +18,7 @@ export default {
   <div class="flex justify-center py-6">
     <Modal>
       <template #title>Welcome Back!</template>
-      <div class="mt-8">
+      <div class="mt-16">
         <LoginForm />
       </div>
       <div class="mt-10 flex flex-col justify-center space-y-8">
