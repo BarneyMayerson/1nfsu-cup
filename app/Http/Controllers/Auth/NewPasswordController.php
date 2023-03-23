@@ -12,16 +12,18 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
-use Inertia\Response;
+use Momentum\Modal\Modal;
 
 class NewPasswordController extends Controller
 {
-    public function create(Request $request): Response
+    public function create(Request $request): Modal
     {
-        return Inertia::render("Auth/ResetPassword", [
-            "email" => $request->email,
-            "token" => $request->route("token"),
-        ]);
+        return Inertia::modal("Auth/ResetPassword")
+            ->with([
+                "email" => $request->email,
+                "token" => $request->route("token"),
+            ])
+            ->baseRoute("home");
     }
 
     /**

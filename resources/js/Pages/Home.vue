@@ -23,7 +23,7 @@ export default {
           <div class="relative mx-auto lg:mx-0">
             <div class="border border-sky-400 shadow-lg dark:border-sky-800">
               <img
-                :src="`storage/static/grand-station.webp`"
+                :src="`/storage/static/grand-station.webp`"
                 alt="Grand Station"
                 class="brightness-150 saturate-50 dark:brightness-100 dark:saturate-100"
               />
