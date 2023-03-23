@@ -26,11 +26,7 @@ function submit() {
 </script>
 
 <template>
-  <form
-    @submit.prevent="submit"
-    @keyup.delete="close"
-    class="w-full space-y-10"
-  >
+  <form @submit.prevent="submit" class="w-full space-y-10">
     <FloatLabelInput
       v-model="form.email"
       label="Email"

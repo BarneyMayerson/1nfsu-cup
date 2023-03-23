@@ -14,8 +14,15 @@ defineProps({
   >
     <svg fill="none" viewBox="0 0 48 48" stroke="currentColor" class="h-8 w-8">
       <rect x="0" y="0" width="48" height="48" rx="9" stroke-width="6" />
-      <polyline stroke-width="3" points="40,36 14,36" />
-      <polyline stroke-width="3" points="18,32 12,36 18,40" />
+      <text
+        fill="currentColor"
+        x="10"
+        y="38"
+        stroke-linecap="round"
+        style="font-size: 1rem; font-style: italic; letter-spacing: 0.1rem"
+      >
+        Esc
+      </text>
     </svg>
 
     <span class="font-sans text-xl italic tracking-wide">
