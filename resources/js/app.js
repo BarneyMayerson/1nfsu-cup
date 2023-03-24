@@ -4,6 +4,8 @@ import "../css/app.css";
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
 import { modal } from "momentum-modal";
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
 import MainLayout from "@/Layouts/MainLayout.vue";
 
 function resolvePageComponent(name, pages) {
@@ -33,6 +35,7 @@ createInertiaApp({
         resolve: (name) =>
           resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),
       })
+      .use(Toast)
       .use(plugin)
       .mount(el);
   },

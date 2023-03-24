@@ -2,8 +2,18 @@
 import { ref } from "vue";
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
+import { useToast, POSITION, TYPE } from "vue-toastification";
 
-const password = ref();
+const toast = useToast();
+
+function exampleToast(message) {
+  toast(message, {
+    position: POSITION.BOTTOM_RIGHT,
+    timeout: false,
+    type: TYPE.SUCCESS,
+    closeOnClick: false,
+  });
+}
 </script>
 
 <script>
@@ -52,6 +62,16 @@ export default {
           <LikeGameNav />
         </div>
       </div>
+    </div>
+
+    <div class="mt-8">
+      <button
+        type="button"
+        class="rounded border px-5 py-2"
+        @click="exampleToast('Hello there!')"
+      >
+        Toast Example
+      </button>
     </div>
   </main>
 </template>
