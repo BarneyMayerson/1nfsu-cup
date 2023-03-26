@@ -1,18 +1,33 @@
 <script setup>
-import { useForm } from "@inertiajs/vue3";
+import { useForm, usePage } from "@inertiajs/vue3";
 import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 import PrimaryLikeGameButton from "@/Components/Shared/PrimaryLikeGameButton.vue";
 import SecondaryLikeGameButton from "@/Components/Shared/SecondaryLikeGameButton.vue";
 import { useModal } from "momentum-modal";
+import { useToast, POSITION } from "vue-toastification";
 
 const { close } = useModal();
+const toast = useToast();
+
+function flash() {
+  const flash = usePage().props.flash;
+
+  toast(flash.message, {
+    position: POSITION.BOTTOM_RIGHT,
+    timeout: 10000,
+    type: flash.type,
+    closeOnClick: false,
+  });
+}
 
 const form = useForm("ForgotPasswordForm", {
   email: "",
 });
 
 function submit() {
-  form.post("/forgot-password");
+  form.post("/forgot-password", {
+    onSuccess: () => flash(),
+  });
 }
 </script>
 <template>

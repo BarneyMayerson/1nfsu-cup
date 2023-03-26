@@ -14,9 +14,7 @@ class PasswordResetLinkController extends Controller
 {
     public function create(): Modal
     {
-        return Inertia::modal("Auth/ForgotPassword")
-            ->with(["status" => session("status")])
-            ->baseRoute("login");
+        return Inertia::modal("Auth/ForgotPassword")->baseRoute("login");
     }
 
     /**
@@ -30,10 +28,20 @@ class PasswordResetLinkController extends Controller
             "email" => "required|email:filter|max:255",
         ]);
 
-        $status = Password::sendResetLink($request->only("email"));
+        try {
+            $status = Password::sendResetLink($request->only("email"));
+        } catch (\Exception $e) {
+            return back()->with("status", [
+                "type" => "error",
+                "message" => "Something went wrong!\n {$e->getMessage()}",
+            ]);
+        }
 
         if ($status == Password::RESET_LINK_SENT) {
-            return back()->with("status", __($status));
+            return back()->with("status", [
+                "type" => "success",
+                "message" => __($status),
+            ]);
         }
 
         throw ValidationException::withMessages([

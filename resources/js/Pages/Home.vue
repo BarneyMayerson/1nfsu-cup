@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
 import { useToast, POSITION, TYPE } from "vue-toastification";

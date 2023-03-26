@@ -20,13 +20,6 @@ export default {
   <Head title="Forgot Password" />
   <Modal>
     <template #title>Forgot Your Password?</template>
-    <div
-      v-if="status"
-      id="status"
-      class="mt-8 text-sm font-medium text-green-600 dark:text-green-400"
-    >
-      <p>{{ status }}</p>
-    </div>
     <div class="mt-16">
       <ForgotPasswordForm />
     </div>
