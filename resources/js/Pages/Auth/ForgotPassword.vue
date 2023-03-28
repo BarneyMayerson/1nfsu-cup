@@ -20,6 +20,10 @@ export default {
   <Head title="Forgot Password" />
   <Modal>
     <template #title>Forgot Your Password?</template>
+    <p class="mt-10 text-center">
+      No problem. Just let us know your email address and we will email you a
+      password reset link that will allow you to choose a new one.
+    </p>
     <div class="mt-16">
       <ForgotPasswordForm />
     </div>

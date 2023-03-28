@@ -40,6 +40,10 @@ class HandleInertiaRequests extends Middleware
             "flash" => [
                 "message" => fn() => $request->session()->get("status.message"),
                 "type" => fn() => $request->session()->get("status.type"),
+                "position" => fn() => $request
+                    ->session()
+                    ->get("status.position"),
+                "timeout" => fn() => $request->session()->get("status.timeout"),
             ],
         ]);
     }

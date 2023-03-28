@@ -34,6 +34,8 @@ class PasswordResetLinkController extends Controller
             return back()->with("status", [
                 "type" => "error",
                 "message" => "Something went wrong!\n {$e->getMessage()}",
+                "position" => "top-center",
+                "timeout" => false,
             ]);
         }
 
@@ -41,6 +43,8 @@ class PasswordResetLinkController extends Controller
             return back()->with("status", [
                 "type" => "success",
                 "message" => __($status),
+                "position" => "top-center",
+                "timeout" => false,
             ]);
         }
 

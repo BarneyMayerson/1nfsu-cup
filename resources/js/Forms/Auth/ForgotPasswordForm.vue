@@ -4,20 +4,21 @@ import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 import PrimaryLikeGameButton from "@/Components/Shared/PrimaryLikeGameButton.vue";
 import SecondaryLikeGameButton from "@/Components/Shared/SecondaryLikeGameButton.vue";
 import { useModal } from "momentum-modal";
-import { useToast, POSITION } from "vue-toastification";
+import { showFlash } from "@/Services/Flash";
 
 const { close } = useModal();
-const toast = useToast();
 
-function flash() {
+function flashAndClose() {
   const flash = usePage().props.flash;
 
-  toast(flash.message, {
-    position: POSITION.BOTTOM_RIGHT,
-    timeout: 10000,
+  showFlash({
+    message: flash.message,
     type: flash.type,
-    closeOnClick: false,
+    position: flash.position,
+    timeout: flash.timeout,
   });
+
+  close();
 }
 
 const form = useForm("ForgotPasswordForm", {
@@ -26,7 +27,7 @@ const form = useForm("ForgotPasswordForm", {
 
 function submit() {
   form.post("/forgot-password", {
-    onSuccess: () => flash(),
+    onSuccess: () => flashAndClose(),
   });
 }
 </script>
