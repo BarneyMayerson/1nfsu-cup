@@ -1,8 +1,13 @@
 <script setup>
-import { Link } from "@inertiajs/vue3";
+import { computed } from "vue";
+import { Link, usePage } from "@inertiajs/vue3";
 import AppLogo from "@/Components/AppLogo.vue";
 import ToggleMode from "@/Components/ToggleMode.vue";
 import MainNav from "@/Navigations/MainNav.vue";
+import Avatar from "@/Components/User/Avatar.vue";
+
+const currentUser = computed(() => usePage().props.auth.user);
+const isAuth = computed(() => Boolean(currentUser.value));
 </script>
 
 <template>
@@ -24,7 +29,11 @@ import MainNav from "@/Navigations/MainNav.vue";
           <div class="sm:flex sm:gap-4">
             <ToggleMode />
           </div>
-          <div class="sm:flex sm:gap-4">
+
+          <div v-if="isAuth" class="h-8 w-8">
+            <Avatar :image-url="false" />
+          </div>
+          <div v-else class="sm:flex sm:gap-4">
             <Link
               class="rounded-md bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-emerald-500"
               href="/login"
