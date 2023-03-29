@@ -53,14 +53,14 @@ function submit() {
     <div class="flex items-center justify-end space-x-2">
       <SecondaryLikeGameButton
         id="cancel-button"
-        :class="{ 'opacity-50': form.processing }"
+        :class="{ 'cursor-not-allowed opacity-50': form.processing }"
         :disabled="form.processing"
         @click="close"
       >
         Cancel
       </SecondaryLikeGameButton>
       <PrimaryLikeGameButton
-        :class="{ 'opacity-50': form.processing }"
+        :class="{ 'cursor-not-allowed opacity-50': form.processing }"
         :disabled="form.processing"
       >
         Register

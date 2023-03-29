@@ -18,7 +18,7 @@ class NewPasswordController extends Controller
 {
     public function create(Request $request): Modal
     {
-        return Inertia::modal("Auth/ResetPassword")
+        return Inertia::modal("Auth/PasswordReset")
             ->with([
                 "email" => $request->email,
                 "token" => $request->route("token"),
@@ -67,7 +67,10 @@ class NewPasswordController extends Controller
         if ($status == Password::PASSWORD_RESET) {
             return redirect()
                 ->route("login")
-                ->with("status", __($status));
+                ->with("status", [
+                    "type" => "success",
+                    "message" => __($status),
+                ]);
         }
 
         throw ValidationException::withMessages([

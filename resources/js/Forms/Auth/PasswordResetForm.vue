@@ -1,10 +1,11 @@
 <script setup>
-import { useForm } from "@inertiajs/vue3";
+import { useForm, usePage } from "@inertiajs/vue3";
 import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 import PasswordInput from "@/Components/Shared/PasswordInput.vue";
 import PrimaryLikeGameButton from "@/Components/Shared/PrimaryLikeGameButton.vue";
 import SecondaryLikeGameButton from "@/Components/Shared/SecondaryLikeGameButton.vue";
 import { useModal } from "momentum-modal";
+import { showFlash } from "@/Services/Flash";
 
 const { close } = useModal();
 
@@ -12,6 +13,19 @@ const props = defineProps({
   email: String,
   token: String,
 });
+
+function flashAndClose() {
+  const flash = usePage().props.flash;
+
+  showFlash({
+    message: flash.message,
+    type: flash.type,
+    position: flash.position,
+    timeout: flash.timeout,
+  });
+
+  // close();
+}
 
 const form = useForm("ForgotPasswordForm", {
   token: props.token,
@@ -21,7 +35,9 @@ const form = useForm("ForgotPasswordForm", {
 });
 
 function submit() {
-  form.post("/reset-password");
+  form.post("/reset-password", {
+    onSuccess: () => flashAndClose(),
+  });
 }
 </script>
 
@@ -51,14 +67,14 @@ function submit() {
     <div class="flex items-center justify-end space-x-2">
       <SecondaryLikeGameButton
         id="cancel-button"
-        :class="{ 'opacity-50': form.processing }"
+        :class="{ 'cursor-not-allowed opacity-50': form.processing }"
         :disabled="form.processing"
         @click="close"
       >
         Cancel
       </SecondaryLikeGameButton>
       <PrimaryLikeGameButton
-        :class="{ 'opacity-50': form.processing }"
+        :class="{ 'cursor-not-allowed opacity-50': form.processing }"
         :disabled="form.processing"
       >
         Reset
