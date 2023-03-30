@@ -15,14 +15,6 @@ function exampleToast(message) {
 }
 </script>
 
-<script>
-import HeroLayout from "@/Layouts/HeroLayout.vue";
-
-export default {
-  layout: HeroLayout,
-};
-</script>
-
 <template>
   <Head title="Home" />
   <main class="container mx-auto">

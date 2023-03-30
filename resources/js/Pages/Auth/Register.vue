@@ -5,14 +5,6 @@ import RegisterForm from "@/Forms/Auth/RegisterForm.vue";
 import RegularLink from "@/Components/Shared/RegularLink.vue";
 </script>
 
-<script>
-import HeroLayout from "@/Layouts/HeroLayout.vue";
-
-export default {
-  layout: HeroLayout,
-};
-</script>
-
 <template>
   <Head title="Register" />
   <Modal>

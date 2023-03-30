@@ -7,6 +7,8 @@ import { modal } from "momentum-modal";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import MainLayout from "@/Layouts/MainLayout.vue";
+import { trail } from "momentum-trail";
+import routes from "@/routes/routes.json";
 
 function resolvePageComponent(name, pages) {
   for (const path in pages) {
@@ -36,6 +38,7 @@ createInertiaApp({
           resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),
       })
       .use(Toast)
+      .use(trail, { routes })
       .use(plugin)
       .mount(el);
   },
