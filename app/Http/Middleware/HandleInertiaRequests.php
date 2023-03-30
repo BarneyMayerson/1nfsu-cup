@@ -40,14 +40,20 @@ class HandleInertiaRequests extends Middleware
             "auth.user" => fn() => $request->user()
                 ? $request->user()->only(["id", "name", "email", "avatar"])
                 : null,
-            "flash" => [
-                "message" => fn() => $request->session()->get("status.message"),
-                "type" => fn() => $request->session()->get("status.type"),
-                "position" => fn() => $request
-                    ->session()
-                    ->get("status.position"),
-                "timeout" => fn() => $request->session()->get("status.timeout"),
-            ],
+            "flash" => fn() => $request->session()->has("status.message")
+                ? [
+                    "message" => fn() => $request
+                        ->session()
+                        ->get("status.message"),
+                    "type" => fn() => $request->session()->get("status.type"),
+                    "position" => fn() => $request
+                        ->session()
+                        ->get("status.position"),
+                    "timeout" => fn() => $request
+                        ->session()
+                        ->get("status.timeout"),
+                ]
+                : null,
         ]);
     }
 }
