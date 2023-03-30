@@ -5,19 +5,21 @@ import { Modal } from "momentum-modal";
 </script>
 
 <template>
-  <div
-    class="sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur transition-colors duration-500 supports-[backdrop-filter]:bg-white/50 dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 lg:border-b lg:border-slate-900/10"
-  >
-    <Header />
-  </div>
-  <main class="px-8 py-6">
-    <slot />
-  </main>
-  <div class="fixed bottom-0 w-full">
+  <div class="flex min-h-screen flex-col">
     <div
-      class="mt-8 bg-white/95 py-12 backdrop-blur transition-colors duration-500 supports-[backdrop-filter]:bg-white/50 dark:border-slate-50/[0.06] dark:bg-transparent md:border-t md:border-slate-900/10 dark:md:border-slate-100/50"
+      class="sticky top-0 z-40 w-full flex-none bg-white/95 backdrop-blur transition-colors duration-500 supports-[backdrop-filter]:bg-white/50 dark:border-slate-50/[0.06] dark:bg-transparent lg:z-50 lg:border-b lg:border-slate-900/10"
     >
-      <Footer />
+      <Header />
+    </div>
+    <main class="flex-grow px-8 py-6">
+      <slot />
+    </main>
+    <div class="w-full">
+      <div
+        class="mt-8 bg-white/95 py-12 backdrop-blur transition-colors duration-500 supports-[backdrop-filter]:bg-white/50 dark:border-slate-50/[0.06] dark:bg-transparent md:border-t md:border-slate-900/10 dark:md:border-slate-100/50"
+      >
+        <Footer />
+      </div>
     </div>
   </div>
 
