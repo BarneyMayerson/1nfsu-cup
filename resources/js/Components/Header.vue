@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted, onUpdated, ref } from "vue";
 import { Link, usePage } from "@inertiajs/vue3";
 import AppLogo from "@/Components/AppLogo.vue";
 import ToggleMode from "@/Components/ToggleMode.vue";
@@ -9,7 +9,16 @@ import { route } from "momentum-trail";
 
 const currentUser = computed(() => usePage().props.auth.user);
 const isAuth = computed(() => Boolean(currentUser.value));
-const isHomePage = computed(() => route().current("home"));
+
+const isHomePage = ref();
+
+onMounted(() => {
+  isHomePage.value = route().current("home");
+});
+
+onUpdated(() => {
+  isHomePage.value = route().current("home");
+});
 </script>
 
 <template>
