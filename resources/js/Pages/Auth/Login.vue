@@ -3,6 +3,7 @@ import { Head } from "@inertiajs/vue3";
 import Modal from "@/Components/Shared/Modal.vue";
 import LoginForm from "@/Forms/Auth/LoginForm.vue";
 import RegularLink from "@/Components/Shared/RegularLink.vue";
+import { route } from "momentum-trail";
 
 defineProps({
   status: String,
@@ -14,21 +15,17 @@ defineProps({
   <div class="flex justify-center py-6">
     <Modal>
       <template #title>Welcome Back!</template>
-      <div
-        v-if="status"
-        id="status"
-        class="mt-8 text-sm font-medium text-green-600 dark:text-green-400"
-      >
-        <p>{{ status }}</p>
-      </div>
       <div class="mt-16">
         <LoginForm />
       </div>
       <div class="mt-10 flex flex-col justify-center space-y-8">
-        <RegularLink href="/forgot-password" class="self-center">
+        <RegularLink :href="route('password.request')" class="self-center">
           Forgot Your Password?
         </RegularLink>
-        <RegularLink href="/register" class="self-center font-semibold">
+        <RegularLink
+          :href="route('register')"
+          class="self-center font-semibold"
+        >
           Register an Account
         </RegularLink>
       </div>

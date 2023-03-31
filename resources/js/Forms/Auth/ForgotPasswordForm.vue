@@ -4,6 +4,7 @@ import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 import PrimaryLikeGameButton from "@/Components/Shared/PrimaryLikeGameButton.vue";
 import SecondaryLikeGameButton from "@/Components/Shared/SecondaryLikeGameButton.vue";
 import { useModal } from "momentum-modal";
+import { route } from "momentum-trail";
 import { showFlash } from "@/Services/Flash";
 
 const { close } = useModal();
@@ -26,7 +27,7 @@ const form = useForm("ForgotPasswordForm", {
 });
 
 function submit() {
-  form.post("/forgot-password", {
+  form.post(route("password.email"), {
     onSuccess: () => flashAndClose(),
   });
 }

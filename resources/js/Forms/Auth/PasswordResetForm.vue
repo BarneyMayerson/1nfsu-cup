@@ -5,6 +5,7 @@ import PasswordInput from "@/Components/Shared/PasswordInput.vue";
 import PrimaryLikeGameButton from "@/Components/Shared/PrimaryLikeGameButton.vue";
 import SecondaryLikeGameButton from "@/Components/Shared/SecondaryLikeGameButton.vue";
 import { useModal } from "momentum-modal";
+import { route } from "momentum-trail";
 import { showFlash } from "@/Services/Flash";
 
 const { close } = useModal();
@@ -35,7 +36,7 @@ const form = useForm("ForgotPasswordForm", {
 });
 
 function submit() {
-  form.post("/reset-password", {
+  form.post(route("password.store"), {
     onSuccess: () => flashAndClose(),
   });
 }

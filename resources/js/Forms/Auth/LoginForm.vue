@@ -5,6 +5,7 @@ import PasswordInput from "@/Components/Shared/PasswordInput.vue";
 import PrimaryLikeGameButton from "@/Components/Shared/PrimaryLikeGameButton.vue";
 import SecondaryLikeGameButton from "@/Components/Shared/SecondaryLikeGameButton.vue";
 import { useModal } from "momentum-modal";
+import { route } from "momentum-trail";
 
 const { close } = useModal();
 
@@ -14,7 +15,7 @@ const form = useForm("LoginForm", {
 });
 
 function submit() {
-  form.post("/login");
+  form.post(route("login"));
 }
 </script>
 

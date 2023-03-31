@@ -26,7 +26,7 @@ onUpdated(() => {
     <div class="container mx-auto">
       <div class="flex h-16 items-center justify-between">
         <div class="md:flex md:items-center md:gap-12">
-          <Link class="block" href="/">
+          <Link class="block" :href="route('home')">
             <span class="sr-only">Home</span>
             <AppLogo class="h-10 w-full" />
           </Link>
@@ -47,7 +47,7 @@ onUpdated(() => {
           <div v-else class="sm:flex sm:gap-4">
             <Link
               class="rounded-md bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-emerald-500"
-              href="/login"
+              :href="route('login')"
               as="button"
             >
               Login
@@ -56,7 +56,7 @@ onUpdated(() => {
             <div class="hidden sm:flex">
               <Link
                 class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-emerald-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
-                href="/register"
+                :href="route('register')"
                 as="button"
               >
                 Register
@@ -69,7 +69,6 @@ onUpdated(() => {
               class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"

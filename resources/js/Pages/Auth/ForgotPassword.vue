@@ -3,6 +3,7 @@ import { Head } from "@inertiajs/vue3";
 import Modal from "@/Components/Shared/Modal.vue";
 import ForgotPasswordForm from "@/Forms/Auth/ForgotPasswordForm.vue";
 import RegularLink from "@/Components/Shared/RegularLink.vue";
+import { route } from "momentum-trail";
 
 defineProps({
   status: String,
@@ -21,7 +22,7 @@ defineProps({
       <ForgotPasswordForm />
     </div>
     <div class="mt-10 flex justify-center">
-      <RegularLink href="/register" class="self-center font-semibold">
+      <RegularLink :href="route('register')" class="self-center font-semibold">
         or Register an Account
       </RegularLink>
     </div>
