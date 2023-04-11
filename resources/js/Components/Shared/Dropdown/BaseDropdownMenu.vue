@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from "vue";
-import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
-import DropdownMenuItem from "@/Components/Shared/Dropdown/DropdownMenuItem.vue";
+import { Menu, MenuButton, MenuItems } from "@headlessui/vue";
+import DropdownMenuItemsSet from "@/Components/Shared/Dropdown/DropdownMenuItemsSet.vue";
 
 const props = defineProps({
   hideChevron: {
@@ -65,38 +65,20 @@ const hasGroupes = computed(() =>
       >
         <MenuItems
           v-if="hasMenuItems"
-          :class="[
-            hasGroupes ? 'divide-y divide-gray-200 dark:divide-gray-400' : '',
-            'absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 ring-gray-200 focus:outline-none dark:bg-sky-700 dark:ring-gray-800',
-          ]"
+          class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 ring-gray-200 focus:outline-none dark:bg-sky-700 dark:ring-gray-800"
         >
           <div
             v-if="hasGroupes"
-            class="p-1"
-            v-for="group in menuItems"
-            :key="menuItems.indexOf(group)"
+            class="divide-y divide-gray-200 dark:divide-gray-400"
           >
-            <MenuItem
-              v-slot="{ active }"
-              v-for="item in group"
-              :key="item.title"
-            >
-              <DropdownMenuItem :href="item.href" :active="active">
-                {{ item.title }}
-              </DropdownMenuItem>
-            </MenuItem>
+            <div v-for="group in menuItems" :key="menuItems.indexOf(group)">
+              <DropdownMenuItemsSet :items="group" />
+            </div>
           </div>
 
-          <MenuItem
-            v-else
-            v-slot="{ active }"
-            v-for="item in menuItems"
-            :key="item.title"
-          >
-            <DropdownMenuItem :href="item.href" :active="active">
-              {{ item.title }}
-            </DropdownMenuItem>
-          </MenuItem>
+          <div v-else>
+            <DropdownMenuItemsSet :items="menuItems" />
+          </div>
         </MenuItems>
       </transition>
     </Menu>

@@ -2,7 +2,7 @@
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
 import { useToast, POSITION, TYPE } from "vue-toastification";
-import DropdownMenu from "@/Components/Shared/Dropdown/DropdownMenu.vue.js";
+import DropdownMenu from "@/Components/Shared/Dropdown/DropdownMenu.vue";
 import BaseDropdownMenu from "@/Components/Shared/Dropdown/BaseDropdownMenu.vue";
 
 const toast = useToast();
