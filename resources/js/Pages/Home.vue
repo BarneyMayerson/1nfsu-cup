@@ -2,6 +2,8 @@
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
 import { useToast, POSITION, TYPE } from "vue-toastification";
+import DropdownMenu from "@/Navigations/DropdownMenu.vue";
+import BaseDropdownMenu from "@/Navigations/BaseDropdownMenu.vue";
 
 const toast = useToast();
 
@@ -63,6 +65,17 @@ function exampleToast(message) {
       >
         Toast Example
       </button>
+    </div>
+
+    <div class="mt-8">
+      <div class="flex items-center">
+        <DropdownMenu />
+        <BaseDropdownMenu>
+          <template #menuButtonTitle>
+            <span>OOPP</span>
+          </template>
+        </BaseDropdownMenu>
+      </div>
     </div>
   </main>
 </template>
