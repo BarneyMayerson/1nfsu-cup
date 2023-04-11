@@ -5,7 +5,7 @@ import DropdownMenuItem from "@/Components/Shared/Dropdown/DropdownMenuItem.vue"
 const props = defineProps({
   items: {
     type: Array,
-    default: [],
+    required: true,
   },
 });
 </script>

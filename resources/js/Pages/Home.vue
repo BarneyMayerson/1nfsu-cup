@@ -2,7 +2,6 @@
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
 import { useToast, POSITION, TYPE } from "vue-toastification";
-import DropdownMenu from "@/Components/Shared/Dropdown/DropdownMenu.vue";
 import BaseDropdownMenu from "@/Components/Shared/Dropdown/BaseDropdownMenu.vue";
 
 const toast = useToast();
@@ -15,6 +14,19 @@ function exampleToast(message) {
     closeOnClick: false,
   });
 }
+
+const fakeDropdownMenu = [
+  [
+    { title: "Item 1", href: "#" },
+    { title: "Item 2", href: "#" },
+    { title: "Item 3", href: "#" },
+  ],
+  [
+    { title: "Item 4", href: "#" },
+    { title: "Item 5", href: "#" },
+  ],
+  [{ title: "Item 3", href: "#" }],
+];
 </script>
 
 <template>
@@ -69,10 +81,9 @@ function exampleToast(message) {
 
     <div class="mt-8">
       <div class="flex items-center">
-        <DropdownMenu />
-        <BaseDropdownMenu>
+        <BaseDropdownMenu :items="fakeDropdownMenu">
           <template #menuButtonTitle>
-            <span>OOPP</span>
+            <span>Dropdown</span>
           </template>
         </BaseDropdownMenu>
       </div>
