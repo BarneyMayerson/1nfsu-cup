@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
-import DropdownMenuItem from "@/Navigations/DropdownMenuItem.vue";
+import DropdownMenuItem from "@/Components/Shared/Dropdown/DropdownMenuItem.vue";
 
 const props = defineProps({
   hideChevron: {

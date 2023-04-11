@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
-import DropdownMenuItem from "@/Navigations/DropdownMenuItem.vue";
+import DropdownMenuItem from "@/Components/Shared/Dropdown/DropdownMenuItem.vue";
 
 describe("DropdownMenuItem.vue", () => {
   let wrapper = null;
