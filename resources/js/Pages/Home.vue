@@ -3,6 +3,7 @@ import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
 import { useToast, POSITION, TYPE } from "vue-toastification";
 import BaseDropdownMenu from "@/Components/Shared/Dropdown/BaseDropdownMenu.vue";
+import Avatar from "@/Components/User/Avatar.vue";
 
 const toast = useToast();
 
@@ -86,6 +87,10 @@ const fakeDropdownMenu = [
             <span>Dropdown</span>
           </template>
         </BaseDropdownMenu>
+
+        <div class="h-20 w-20">
+          <Avatar src="/storage/random-person.jpg" />
+        </div>
       </div>
     </div>
   </main>

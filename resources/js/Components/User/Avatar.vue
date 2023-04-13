@@ -1,36 +1,46 @@
 <script setup>
-import { computed } from "vue";
+import { ref, watchEffect } from "vue";
 
 const props = defineProps({
-  imageUrl: {
-    type: [String, Boolean],
-    default: false,
-  },
+  src: String,
 });
 
-const hasImage = computed(() => Boolean(props.imageUrl));
+const verifiedSrc = ref(null);
+
+watchEffect(() => {
+  const img = new Image();
+
+  img.src = props.src;
+  img
+    .decode()
+    .then(() => (verifiedSrc.value = props.src))
+    .catch((e) => {
+      verifiedSrc.value = null;
+      throw e;
+    });
+});
 </script>
 
 <template>
-  <div class="inline-flex">
+  <div class="inline-flex h-full w-full">
     <img
-      v-if="hasImage"
-      class="dark:ring-offset-scy-500 inline-block rounded-full object-cover object-center ring-0 ring-offset-4 ring-offset-slate-400 dark:ring-offset-sky-500"
-      :src="imageUrl"
+      v-if="verifiedSrc"
+      class="inline-block h-full w-full rounded-full object-cover object-center ring-0 ring-offset-2 ring-offset-slate-400 dark:ring-offset-sky-500"
+      :src="verifiedSrc"
       alt="person-avatar"
     />
     <svg
       v-else
       fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
+      viewBox="0 0 128 128"
+      stroke-width="2"
       stroke="currentColor"
+      stroke-linecap="round"
       class="h-full w-full"
     >
+      <circle cx="64" cy="40" r="28" />
       <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+        d="M12,112 Q12,80 40,66 M41,66 Q64,84 87,66 M116,112 Q116,80 88,66 M12,112 Q64,132 116,112"
       />
     </svg>
   </div>
