@@ -15,7 +15,7 @@ const props = defineProps({
     <DropdownMenuItem
       :href="item.href"
       :active="active"
-      :method="item.methd"
+      :method="item.method"
       :as="item.as"
     >
       {{ item.title }}

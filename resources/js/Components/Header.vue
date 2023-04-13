@@ -2,10 +2,10 @@
 import { computed, onMounted, onUpdated, ref } from "vue";
 import { Link, usePage } from "@inertiajs/vue3";
 import AppLogo from "@/Components/AppLogo.vue";
+import { route } from "momentum-trail";
 import ToggleMode from "@/Components/ToggleMode.vue";
 import MainNav from "@/Navigations/MainNav.vue";
-import Avatar from "@/Components/User/Avatar.vue";
-import { route } from "momentum-trail";
+import AuthUserDropdownMenu from "@/Navigations/AuthUserDropdownMenu.vue";
 
 const currentUser = computed(() => usePage().props.auth.user);
 const isAuth = computed(() => Boolean(currentUser.value));
@@ -41,8 +41,8 @@ onUpdated(() => {
             <ToggleMode />
           </div>
 
-          <div v-if="isAuth" class="h-8 w-8">
-            <Avatar :image-url="false" />
+          <div v-if="isAuth" class="sm:flex sm:gap-4">
+            <AuthUserDropdownMenu />
           </div>
           <div v-else class="sm:flex sm:gap-4">
             <Link
