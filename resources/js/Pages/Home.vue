@@ -1,33 +1,6 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
-import { useToast, POSITION, TYPE } from "vue-toastification";
-import BaseDropdownMenu from "@/Components/Shared/Dropdown/BaseDropdownMenu.vue";
-import Avatar from "@/Components/User/Avatar.vue";
-
-const toast = useToast();
-
-function exampleToast(message) {
-  toast(message, {
-    position: POSITION.BOTTOM_RIGHT,
-    timeout: false,
-    type: TYPE.SUCCESS,
-    closeOnClick: false,
-  });
-}
-
-const fakeDropdownMenu = [
-  [
-    { title: "Item 1", href: "#" },
-    { title: "Item 2", href: "#" },
-    { title: "Item 3", href: "#" },
-  ],
-  [
-    { title: "Item 4", href: "#" },
-    { title: "Item 5", href: "#" },
-  ],
-  [{ title: "Item 3", href: "#" }],
-];
 </script>
 
 <template>
@@ -66,30 +39,6 @@ const fakeDropdownMenu = [
           class="mt-8 lg:col-span-4 lg:mr-4 xl:absolute xl:inset-0 xl:left-2/3 xl:mt-24 xl:mr-0"
         >
           <LikeGameNav />
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-8">
-      <button
-        type="button"
-        class="rounded border px-5 py-2"
-        @click="exampleToast('Hello there!')"
-      >
-        Toast Example
-      </button>
-    </div>
-
-    <div class="mt-8">
-      <div class="flex items-center">
-        <BaseDropdownMenu :items="fakeDropdownMenu">
-          <template #menuButtonTitle>
-            <span>Dropdown</span>
-          </template>
-        </BaseDropdownMenu>
-
-        <div class="h-20 w-20">
-          <Avatar src="/storage/random-person.jpg" />
         </div>
       </div>
     </div>
