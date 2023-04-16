@@ -7,6 +7,7 @@ import {
   DialogTitle,
 } from "@headlessui/vue";
 import { useModal } from "momentum-modal";
+import XMarkIcon from "./Icons/XMarkIcon.vue";
 
 const { show, close, redirect } = useModal();
 </script>
@@ -56,26 +57,14 @@ const { show, close, redirect } = useModal();
                 <slot name="title" />
               </DialogTitle>
               <slot />
-              <div class="absolute top-0 right-0 pt-4 pr-4">
+              <div class="absolute right-0 top-0 pr-4 pt-4">
                 <button
                   type="button"
                   class="rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   @click="close"
                 >
                   <span class="sr-only">Close</span>
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-6 w-6"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  <XMarkIcon class="h-6 w-6" />
                 </button>
               </div>
             </DialogPanel>
