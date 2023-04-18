@@ -6,6 +6,8 @@ import { route } from "momentum-trail";
 import ToggleMode from "@/Components/ToggleMode.vue";
 import MainNav from "@/Navigations/MainNav.vue";
 import AuthUserDropdownMenu from "@/Navigations/AuthUserDropdownMenu.vue";
+import TryDisclosure from "@/Components/TryDisclosure.vue";
+import Bars3Icon from "./Shared/Icons/Bars3Icon.vue";
 
 const currentUser = computed(() => usePage().props.auth.user);
 const isAuth = computed(() => Boolean(currentUser.value));
@@ -68,22 +70,14 @@ onUpdated(() => {
             <button
               class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
             >
-              <svg
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              <Bars3Icon class="h-5 w-5" />
             </button>
           </div>
         </div>
+      </div>
+
+      <div class="mt-2">
+        <TryDisclosure />
       </div>
     </div>
   </header>
