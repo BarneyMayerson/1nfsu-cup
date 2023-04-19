@@ -29,7 +29,7 @@
             Login
           </Link>
 
-          <div class="hidden sm:flex">
+          <div class="hidden md:flex">
             <Link
               class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-emerald-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
               :href="route('register')"
@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <div class="block md:hidden">
+        <div class="block">
           <DisclosureButton
             class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
           >
@@ -52,8 +52,84 @@
     </div>
 
     <DisclosurePanel class="px-4 pb-2 pt-4">
-      If you're unhappy with your purchase for any reason, email us within 90
-      days and we'll refund you in full, no questions asked.
+      <div class="border-b pb-4">
+        <nav class="flex flex-col space-y-2">
+          <Link
+            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            :href="route('competitions.index')"
+          >
+            Competitions
+          </Link>
+          <Link
+            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            :href="route('tourneys.index')"
+          >
+            Tourneys
+          </Link>
+          <Link
+            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            :href="route('standings.index')"
+          >
+            Standings
+          </Link>
+          <Link
+            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            :href="route('game-server.index')"
+          >
+            Game Server
+          </Link>
+        </nav>
+      </div>
+      <div class="mt-4">
+        <div v-if="isAuth">
+          <div class="flex items-center px-4">
+            <div class="h-10 w-10 flex-shrink-0">
+              <Avatar :src="currentUser.avatar" />
+            </div>
+            <div class="ml-4">
+              <div class="text-base font-medium">Tom Cook</div>
+              <div class="text-sm font-medium">tom@example.com</div>
+            </div>
+            <button
+              type="button"
+              class="ml-auto flex-shrink-0 rounded-full p-1 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-200"
+            >
+              <span class="sr-only">View notifications</span>
+              <BellIcon class="h-8 w-8" aria-hidden="true" />
+            </button>
+          </div>
+          <div class="mt-3 flex flex-col items-start space-y-1">
+            <Link
+              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+              href="#"
+            >
+              Your Profile
+            </Link>
+            <Link
+              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+              href="#"
+            >
+              Settings
+            </Link>
+            <Link
+              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+              :href="route('logout')"
+              method="post"
+              as="button"
+            >
+              Logout
+            </Link>
+          </div>
+        </div>
+        <div v-else>
+          <Link
+            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            :href="route('register')"
+          >
+            Register
+          </Link>
+        </div>
+      </div>
     </DisclosurePanel>
   </Disclosure>
 </template>
@@ -67,8 +143,10 @@ import AppLogo from "@/Components/AppLogo.vue";
 import MainNav from "@/Navigations/MainNav.vue";
 import AuthUserDropdownMenu from "@/Navigations/AuthUserDropdownMenu.vue";
 import ToggleMode from "@/Components/ToggleMode.vue";
+import Avatar from "@/Components/User/Avatar.vue";
 import XMarkIcon from "@/Components/Shared/Icons/XMarkIcon.vue";
 import Bars3Icon from "@/Components/Shared/Icons/Bars3Icon.vue";
+import BellIcon from "@/Components/Shared/Icons/BellIcon.vue";
 
 const isHomePage = ref();
 

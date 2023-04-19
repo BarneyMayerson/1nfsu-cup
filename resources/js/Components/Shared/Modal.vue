@@ -16,7 +16,7 @@ const { show, close, redirect } = useModal();
   <TransitionRoot appear as="template" :show="show">
     <Dialog
       as="div"
-      class="relative z-10 text-gray-900 dark:text-sky-400"
+      class="relative z-50 text-gray-900 dark:text-sky-400"
       @close="close"
     >
       <TransitionChild
