@@ -1,5 +1,5 @@
 <template>
-  <Disclosure v-slot="{ open }" as="nav" class="border border-purple-200">
+  <Disclosure v-slot="{ open }" as="nav">
     <div class="flex h-16 items-center justify-between">
       <div class="md:flex md:items-center md:gap-12">
         <Link class="block" :href="route('home')">
@@ -51,77 +51,75 @@
       </div>
     </div>
 
-    <DisclosurePanel class="px-4 pb-2 pt-4">
-      <div class="border-b pb-4">
-        <nav class="flex flex-col space-y-2">
-          <Link
-            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-            :href="route('competitions.index')"
-          >
-            Competitions
-          </Link>
-          <Link
-            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-            :href="route('tourneys.index')"
-          >
-            Tourneys
-          </Link>
-          <Link
-            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-            :href="route('standings.index')"
-          >
-            Standings
-          </Link>
-          <Link
-            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-            :href="route('game-server.index')"
-          >
-            Game Server
-          </Link>
-        </nav>
-      </div>
-      <div class="mt-4">
-        <div v-if="isAuth">
-          <div class="flex items-center px-4">
-            <div class="h-10 w-10 flex-shrink-0">
-              <Avatar :src="currentUser.avatar" />
-            </div>
-            <div class="ml-4">
-              <div class="text-base font-medium">Tom Cook</div>
-              <div class="text-sm font-medium">tom@example.com</div>
-            </div>
-            <button
-              type="button"
-              class="ml-auto flex-shrink-0 rounded-full p-1 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-200"
-            >
-              <span class="sr-only">View notifications</span>
-              <BellIcon class="h-8 w-8" aria-hidden="true" />
-            </button>
+    <DisclosurePanel class="space-y-4 divide-y rounded-lg border py-4">
+      <nav class="flex flex-col space-y-2 px-4">
+        <Link
+          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          :href="route('competitions.index')"
+        >
+          Competitions
+        </Link>
+        <Link
+          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          :href="route('tourneys.index')"
+        >
+          Tourneys
+        </Link>
+        <Link
+          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          :href="route('standings.index')"
+        >
+          Standings
+        </Link>
+        <Link
+          class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+          :href="route('game-server.index')"
+        >
+          Game Server
+        </Link>
+      </nav>
+      <div v-if="isAuth" class="px-4">
+        <div class="mt-4 flex items-center">
+          <div class="h-10 w-10 flex-shrink-0">
+            <Avatar :src="currentUser.avatar" />
           </div>
-          <div class="mt-3 flex flex-col items-start space-y-1">
-            <Link
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              href="#"
-            >
-              Your Profile
-            </Link>
-            <Link
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              href="#"
-            >
-              Settings
-            </Link>
-            <Link
-              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              :href="route('logout')"
-              method="post"
-              as="button"
-            >
-              Logout
-            </Link>
+          <div class="ml-4">
+            <div class="text-base font-medium">Tom Cook</div>
+            <div class="text-sm font-medium">tom@example.com</div>
           </div>
+          <button
+            type="button"
+            class="ml-auto flex-shrink-0 rounded-full p-1 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-200"
+          >
+            <span class="sr-only">View notifications</span>
+            <BellIcon class="h-8 w-8" aria-hidden="true" />
+          </button>
         </div>
-        <div v-else>
+        <div class="mt-3 flex flex-col items-start space-y-1">
+          <Link
+            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            href="#"
+          >
+            Your Profile
+          </Link>
+          <Link
+            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            href="#"
+          >
+            Settings
+          </Link>
+          <Link
+            class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            :href="route('logout')"
+            method="post"
+            as="button"
+          >
+            Logout
+          </Link>
+        </div>
+      </div>
+      <div v-else class="px-4">
+        <div class="mt-4">
           <Link
             class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
             :href="route('register')"
