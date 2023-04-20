@@ -54,6 +54,8 @@ class HandleInertiaRequests extends Middleware
                         ->get("status.timeout"),
                 ]
                 : null,
+
+            "isHome" => $request->routeIs("home"),
         ]);
     }
 }

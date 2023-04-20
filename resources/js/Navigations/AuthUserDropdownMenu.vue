@@ -8,8 +8,11 @@ import { route } from "momentum-trail";
 const authUser = computed(() => usePage().props.auth.user);
 
 const menu = [
-  [{ title: "Your profile", href: "#" }],
-  [{ title: "Log out", href: route("logout"), method: "post", as: "button" }],
+  [
+    { title: "Your profile", href: "#" },
+    { title: "Settings", href: "#" },
+  ],
+  [{ title: "Logout", href: route("logout"), method: "post", as: "button" }],
 ];
 </script>
 
