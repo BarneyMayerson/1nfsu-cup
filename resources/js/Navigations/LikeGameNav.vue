@@ -1,5 +1,6 @@
 <script setup>
-import LikeGameMenuItem from "@/Navigations/LikeGameMenuItem.vue";
+import { route } from "momentum-trail";
+import LikeGameMenuItem from "@/Components/Nav/LikeGameMenuItem.vue";
 import SpinCircle from "@/Components/NFSUBrandTrivia/SpinCircle.vue";
 </script>
 
@@ -24,10 +25,18 @@ import SpinCircle from "@/Components/NFSUBrandTrivia/SpinCircle.vue";
     </div>
     <div class="flex justify-end">
       <nav class="space-y-2">
-        <LikeGameMenuItem href="competitions">Competitions</LikeGameMenuItem>
-        <LikeGameMenuItem href="tourneys">Tourneys</LikeGameMenuItem>
-        <LikeGameMenuItem href="standings">Standings</LikeGameMenuItem>
-        <LikeGameMenuItem href="game-server">Game Server</LikeGameMenuItem>
+        <LikeGameMenuItem :href="route('competitions.index')">
+          Competitions
+        </LikeGameMenuItem>
+        <LikeGameMenuItem :href="route('tourneys.index')">
+          Tourneys
+        </LikeGameMenuItem>
+        <LikeGameMenuItem :href="route('standings.index')">
+          Standings
+        </LikeGameMenuItem>
+        <LikeGameMenuItem :href="route('game-server.index')">
+          Game Server
+        </LikeGameMenuItem>
       </nav>
     </div>
   </div>

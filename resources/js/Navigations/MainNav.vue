@@ -1,6 +1,6 @@
 <script setup>
 import { route } from "momentum-trail";
-import GenericMenuItem from "@/Navigations/GenericMenuItem.vue";
+import GenericMenuItem from "@/Components/Nav/GenericMenuItem.vue";
 
 const props = defineProps({
   vertical: {

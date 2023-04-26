@@ -4,7 +4,7 @@ import { usePage } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
 import Avatar from "@/Components/User/Avatar.vue";
 import BellIcon from "@/Components/Shared/Icons/BellIcon.vue";
-import GenericMenuItem from "@/Navigations/GenericMenuItem.vue";
+import GenericMenuItem from "@/Components/Nav/GenericMenuItem.vue";
 
 const currentUser = computed(() => usePage().props.auth.user);
 </script>
