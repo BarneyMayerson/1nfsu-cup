@@ -1,5 +1,6 @@
 <script setup>
-import MainNavItem from "@/Navigations/MainNavItem.vue";
+import { route } from "momentum-trail";
+import GenericMenuItem from "@/Navigations/GenericMenuItem.vue";
 
 const props = defineProps({
   vertical: {
@@ -13,20 +14,28 @@ const props = defineProps({
     <ul
       :class="[
         'flex text-sm',
-        props.vertical ? 'flex-col items-start gap-4' : ' items-center gap-6',
+        props.vertical ? 'flex-col items-start gap-4' : 'items-center gap-6',
       ]"
     >
       <li>
-        <MainNavItem href="competitions">Competitions</MainNavItem>
+        <GenericMenuItem :href="route('competitions.index')">
+          Competitions
+        </GenericMenuItem>
       </li>
       <li>
-        <MainNavItem href="tourneys">Tourneys</MainNavItem>
+        <GenericMenuItem :href="route('tourneys.index')">
+          Tourneys
+        </GenericMenuItem>
       </li>
       <li>
-        <MainNavItem href="standings">Standings</MainNavItem>
+        <GenericMenuItem :href="route('standings.index')">
+          Standings
+        </GenericMenuItem>
       </li>
       <li>
-        <MainNavItem href="game-server">Game Server</MainNavItem>
+        <GenericMenuItem :href="route('game-server.index')">
+          Game Server
+        </GenericMenuItem>
       </li>
     </ul>
   </nav>
