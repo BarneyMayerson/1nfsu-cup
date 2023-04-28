@@ -13,6 +13,7 @@ import XMarkIcon from "@/Components/Shared/Icons/XMarkIcon.vue";
 import Bars3Icon from "@/Components/Shared/Icons/Bars3Icon.vue";
 import BellIcon from "@/Components/Shared/Icons/BellIcon.vue";
 import Avatar from "@/Components/User/Avatar.vue";
+import mainMenuItems from "@/menus/mainMenuItems";
 
 const currentUser = computed(() => usePage().props.auth.user);
 const isAuth = computed(() => Boolean(currentUser.value));
@@ -63,36 +64,9 @@ const isHome = computed(() => usePage().props.isHome);
         >
           <nav aria-label="Site Nav" class="px-4">
             <ul class="flex flex-col items-start gap-3">
-              <li>
-                <GenericMenuItem
-                  @click="close()"
-                  :href="route('competitions.index')"
-                >
-                  Competitions
-                </GenericMenuItem>
-              </li>
-              <li>
-                <GenericMenuItem
-                  @click="close()"
-                  :href="route('tourneys.index')"
-                >
-                  Tourneys
-                </GenericMenuItem>
-              </li>
-              <li>
-                <GenericMenuItem
-                  @click="close()"
-                  :href="route('standings.index')"
-                >
-                  Standings
-                </GenericMenuItem>
-              </li>
-              <li>
-                <GenericMenuItem
-                  @click="close()"
-                  :href="route('game-server.index')"
-                >
-                  Game Server
+              <li v-for="item in mainMenuItems" :key="item.label">
+                <GenericMenuItem @click="close()" :href="item.href">
+                  {{ item.label }}
                 </GenericMenuItem>
               </li>
             </ul>

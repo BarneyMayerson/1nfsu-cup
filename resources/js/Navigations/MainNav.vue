@@ -1,6 +1,6 @@
 <script setup>
-import { route } from "momentum-trail";
 import GenericMenuItem from "@/Components/Nav/GenericMenuItem.vue";
+import mainMenuItems from "@/menus/mainMenuItems";
 
 const props = defineProps({
   vertical: {
@@ -17,24 +17,9 @@ const props = defineProps({
         props.vertical ? 'flex-col items-start gap-4' : 'items-center gap-6',
       ]"
     >
-      <li>
-        <GenericMenuItem :href="route('competitions.index')">
-          Competitions
-        </GenericMenuItem>
-      </li>
-      <li>
-        <GenericMenuItem :href="route('tourneys.index')">
-          Tourneys
-        </GenericMenuItem>
-      </li>
-      <li>
-        <GenericMenuItem :href="route('standings.index')">
-          Standings
-        </GenericMenuItem>
-      </li>
-      <li>
-        <GenericMenuItem :href="route('game-server.index')">
-          Game Server
+      <li v-for="item in mainMenuItems" :key="item.label">
+        <GenericMenuItem :href="item.href">
+          {{ item.label }}
         </GenericMenuItem>
       </li>
     </ul>
