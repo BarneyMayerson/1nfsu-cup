@@ -10,7 +10,7 @@ const authUser = computed(() => usePage().props.auth.user);
 const menu = [
   [
     { title: "Your profile", href: "#" },
-    { title: "Settings", href: "#" },
+    { title: "Settings", href: route("settings.profile.edit") },
   ],
   [{ title: "Logout", href: route("logout"), method: "post", as: "button" }],
 ];
