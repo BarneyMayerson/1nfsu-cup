@@ -39,7 +39,7 @@ const props = defineProps({
             'right-0 origin-top-right': props.align === 'right',
             'left-0 origin-top-left': props.align === 'left',
           }"
-          class="absolute z-10 mt-2 divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          class="absolute z-10 mt-2 divide-y divide-gray-300 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:divide-gray-600 dark:bg-sky-950"
         >
           <slot name="items" />
         </MenuItems>

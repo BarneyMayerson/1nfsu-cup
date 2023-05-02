@@ -56,44 +56,6 @@ const authUser = computed(() => usePage().props.auth.user);
     <div class="mt-8 flex items-center space-x-4">
       <Bars3Icon class="h-20 w-20" />
       <XMarkIcon class="h-20 w-20" />
-      <Dropdown>
-        <div
-          class="inline-flex w-full items-center rounded-md bg-transparent px-1"
-        >
-          <span class="inline-block h-12 w-12">
-            <Avatar :src="authUser.avatar" />
-          </span>
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="-mr-1 ml-2 h-5 w-5 text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </div>
-
-        <template #items>
-          <DropdownItemsGroup label="Basic action">
-            <DropdownItem href="#">Your profile</DropdownItem>
-            <DropdownItem :as="Link" :href="route('settings.profile.edit')">
-              Settings
-            </DropdownItem>
-          </DropdownItemsGroup>
-
-          <DropdownItemsGroup>
-            <DropdownItem as="button" :href="route('logout')">
-              Logout
-            </DropdownItem>
-          </DropdownItemsGroup>
-        </template>
-      </Dropdown>
     </div>
   </main>
 </template>
