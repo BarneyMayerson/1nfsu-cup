@@ -15,35 +15,33 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="w-56 text-right">
-    <Menu as="div" class="relative inline-block text-left">
-      <div>
-        <MenuButton as="template">
-          <slot />
-        </MenuButton>
-      </div>
+  <Menu as="div" class="relative inline-block text-left">
+    <div>
+      <MenuButton as="template">
+        <slot />
+      </MenuButton>
+    </div>
 
-      <transition
-        enter-active-class="transition duration-100 ease-out"
-        enter-from-class="transform scale-95 opacity-0"
-        enter-to-class="transform scale-100 opacity-100"
-        leave-active-class="transition duration-75 ease-in"
-        leave-from-class="transform scale-100 opacity-100"
-        leave-to-class="transform scale-95 opacity-0"
+    <transition
+      enter-active-class="transition duration-100 ease-out"
+      enter-from-class="transform scale-95 opacity-0"
+      enter-to-class="transform scale-100 opacity-100"
+      leave-active-class="transition duration-75 ease-in"
+      leave-from-class="transform scale-100 opacity-100"
+      leave-to-class="transform scale-95 opacity-0"
+    >
+      <MenuItems
+        :style="{
+          width: props.width,
+        }"
+        :class="{
+          'right-0 origin-top-right': props.align === 'right',
+          'left-0 origin-top-left': props.align === 'left',
+        }"
+        class="absolute z-10 mt-2 divide-y divide-gray-300 rounded-md border border-gray-300 bg-white shadow-lg focus:outline-none dark:divide-gray-600 dark:border-gray-600 dark:bg-sky-950"
       >
-        <MenuItems
-          :style="{
-            width: props.width,
-          }"
-          :class="{
-            'right-0 origin-top-right': props.align === 'right',
-            'left-0 origin-top-left': props.align === 'left',
-          }"
-          class="absolute z-10 mt-2 divide-y divide-gray-300 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:divide-gray-600 dark:bg-sky-950"
-        >
-          <slot name="items" />
-        </MenuItems>
-      </transition>
-    </Menu>
-  </div>
+        <slot name="items" />
+      </MenuItems>
+    </transition>
+  </Menu>
 </template>

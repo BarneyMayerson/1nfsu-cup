@@ -1,12 +1,7 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
 import { computed } from "vue";
-import { usePage, Link } from "@inertiajs/vue3";
-import { route } from "momentum-trail";
-import Dropdown from "@/Components/Shared/Dropdown/Dropdown.vue";
-import DropdownItemsGroup from "@/Components/Shared/Dropdown/DropdownItemsGroup.vue";
-import DropdownItem from "@/Components/Shared/Dropdown/DropdownItem.vue";
-import Avatar from "@/Components/User/Avatar.vue";
+import { usePage } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
 import Bars3Icon from "@/Components/Shared/Icons/Bars3Icon.vue";
 import XMarkIcon from "@/Components/Shared/Icons/XMarkIcon.vue";
@@ -47,7 +42,7 @@ const authUser = computed(() => usePage().props.auth.user);
           </div>
         </div>
         <div
-          class="mt-8 lg:col-span-4 lg:mr-4 xl:absolute xl:inset-0 xl:left-2/3 xl:mr-0 xl:mt-24"
+          class="xl:left-2/3 mt-8 lg:col-span-4 lg:mr-4 xl:absolute xl:inset-0 xl:mr-0 xl:mt-24"
         >
           <LikeGameNav />
         </div>

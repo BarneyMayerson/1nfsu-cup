@@ -19,8 +19,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <MenuItem v-slot="{ active }">
+  <MenuItem v-slot="{ active, close }">
     <component
+      @click="close"
       :is="props.is"
       :as="props.as"
       :method="props.method"
