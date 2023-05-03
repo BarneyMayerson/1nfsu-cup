@@ -2,19 +2,28 @@
 import { MenuItem } from "@headlessui/vue";
 
 const props = defineProps({
-  as: {
+  is: {
     type: [String, Object],
     default: "a",
+  },
+  as: {
+    type: String,
+    default: "a",
+  },
+  method: {
+    type: String,
+    default: "get",
   },
   description: String,
 });
 </script>
 
 <template>
-  <MenuItem v-slot="{ active, close }">
+  <MenuItem v-slot="{ active }">
     <component
-      :is="props.as"
-      @click="close"
+      :is="props.is"
+      :as="props.as"
+      :method="props.method"
       :class="[
         active
           ? '-ml-px border-l border-l-gray-900 text-gray-900 dark:border-l-gray-100 dark:text-gray-100'

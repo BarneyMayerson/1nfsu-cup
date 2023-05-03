@@ -35,14 +35,16 @@ const authUser = computed(() => usePage().props.auth.user);
     <template #items>
       <DropdownItemsGroup label="Basic action">
         <DropdownItem href="#">Your profile</DropdownItem>
-        <DropdownItem :as="Link" :href="route('settings.profile.edit')">
+        <DropdownItem :is="Link" :href="route('settings.profile.edit')">
           Settings
         </DropdownItem>
       </DropdownItemsGroup>
 
       <DropdownItemsGroup>
         <DropdownItem
-          :as="Link"
+          :is="Link"
+          as="button"
+          method="post"
           :href="route('logout')"
           description="Log out your account"
         >
