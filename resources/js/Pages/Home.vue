@@ -1,12 +1,6 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
-import { computed } from "vue";
-import { usePage } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
-import Bars3Icon from "@/Components/Shared/Icons/Bars3Icon.vue";
-import XMarkIcon from "@/Components/Shared/Icons/XMarkIcon.vue";
-
-const authUser = computed(() => usePage().props.auth.user);
 </script>
 
 <template>
@@ -42,15 +36,11 @@ const authUser = computed(() => usePage().props.auth.user);
           </div>
         </div>
         <div
-          class="xl:left-2/3 mt-8 lg:col-span-4 lg:mr-4 xl:absolute xl:inset-0 xl:mr-0 xl:mt-24"
+          class="mt-8 lg:col-span-4 lg:mr-4 xl:absolute xl:inset-0 xl:left-2/3 xl:mr-0 xl:mt-24"
         >
           <LikeGameNav />
         </div>
       </div>
-    </div>
-    <div class="mt-8 flex items-center space-x-4">
-      <Bars3Icon class="h-20 w-20" />
-      <XMarkIcon class="h-20 w-20" />
     </div>
   </main>
 </template>
