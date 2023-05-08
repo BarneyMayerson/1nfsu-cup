@@ -1,6 +1,9 @@
 <script setup>
+import { ref } from "vue";
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
+
+const imgNotFoundClasses = ref("");
 </script>
 
 <template>
@@ -12,9 +15,12 @@ import LikeGameNav from "@/Navigations/LikeGameNav.vue";
           <div class="relative mx-auto lg:mx-0">
             <div class="border border-sky-400 shadow-lg dark:border-sky-800">
               <img
-                :src="`/storage/static/grand-station.webp`"
+                :src="`/storage/static/grand-station.wbp`"
+                @error="imgNotFoundClasses = 'h-[60vh]'"
+                @load="imgNotFoundClasses = ''"
                 alt="Grand Station"
                 class="brightness-150 saturate-50 dark:brightness-100 dark:saturate-100"
+                :class="imgNotFoundClasses"
               />
             </div>
             <div
