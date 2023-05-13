@@ -15,7 +15,7 @@ const imgNotFoundClasses = ref("");
           <div class="relative mx-auto lg:mx-0">
             <div class="border border-sky-400 shadow-lg dark:border-sky-800">
               <img
-                :src="`/storage/static/grand-station.wbp`"
+                :src="`/storage/static/grand-station.webp`"
                 @error="imgNotFoundClasses = 'h-[60vh]'"
                 @load="imgNotFoundClasses = ''"
                 alt="Grand Station"
@@ -36,7 +36,7 @@ const imgNotFoundClasses = ref("");
             <p
               class="mt-6 px-4 text-base sm:text-lg md:text-xl lg:px-8 lg:text-2xl xl:text-3xl"
             >
-              If it is important to you, you will find a way. If not, you’ll
+              If it is important to you, you will find a way. If not, you'll
               find an excuse.
             </p>
           </div>
