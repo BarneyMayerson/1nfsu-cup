@@ -4,7 +4,9 @@ import Profile from "@/Pages/User/Settings/Profile.vue";
 
 describe("Profile.vue", () => {
   it("it exists", () => {
-    const wrapper = mount(Profile);
+    const wrapper = mount(Profile, {
+      shallow: true,
+    });
 
     expect(Boolean(wrapper)).toBeTruthy();
   });

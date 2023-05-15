@@ -1,22 +1,22 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
-import DropdownMenuItem from "@/Components/Shared/Dropdown/DropdownMenuItem.vue";
+import DropdownItem from "@/Components/Shared/Dropdown/DropdownItem.vue";
 
-describe("DropdownMenuItem.vue", () => {
+describe("DropdownItem.vue", () => {
   let wrapper = null;
 
   beforeEach(() => {
-    wrapper = mount(DropdownMenuItem, {
+    wrapper = mount(DropdownItem, {
       props: {
         href: "/",
       },
+      shallow: true,
     });
   });
 
   it("has props default values", () => {
     expect(wrapper.vm.method).toBe("get");
-    expect(wrapper.vm.isCurrent).toBe(false);
-    expect(wrapper.vm.active).toBe(false);
+    expect(wrapper.vm.is).toBe("a");
     expect(wrapper.vm.as).toBe("a");
   });
 });
