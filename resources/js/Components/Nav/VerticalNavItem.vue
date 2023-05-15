@@ -1,11 +1,13 @@
 <script setup>
+import { Link } from "@inertiajs/vue3";
+
 defineProps({
   item: Object,
 });
 </script>
 
 <template>
-  <a
+  <Link
     :style="
       item.depth
         ? `margin-left: -${item.depth}rem; padding-left: ${item.depth}rem`
@@ -21,7 +23,7 @@ defineProps({
   >
     <component :is="item.icon" class="h-6 w-6 shrink-0" aria-hidden="true" />
     {{ item.label }}
-  </a>
+  </Link>
   <div v-if="item.children.length" class="ml-4 mt-1">
     <li v-for="child in item.children" :key="child.label">
       <VerticalNavItem :item="child" />

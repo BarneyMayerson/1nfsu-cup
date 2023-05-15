@@ -1,4 +1,5 @@
 <script setup>
+import { route } from "momentum-trail";
 import VerticalNavItem from "@/Components/Nav/VerticalNavItem.vue";
 import UserIcon from "@/Components/Shared/Icons/UserIcon.vue";
 
@@ -6,6 +7,14 @@ const navItems = [
   {
     label: "Public profile",
     href: "#",
+    icon: UserIcon,
+    current: false,
+    depth: 0,
+    children: [],
+  },
+  {
+    label: "Competitions",
+    href: route("competitions.index"),
     icon: UserIcon,
     current: false,
     depth: 0,
