@@ -1,60 +1,29 @@
 <script setup>
+import { route } from "momentum-trail";
 import UserIcon from "@/Components/Shared/Icons/UserIcon.vue";
+import GearIcon from "@/Components/Shared/Icons/GearIcon.vue";
+import BellIcon from "@/Components/Shared/Icons/BellIcon.vue";
 import VerticalNavItem from "@/Components/Nav/VerticalNavItem.vue";
 
 const navItems = [
   {
     label: "Public profile",
-    href: "#",
+    href: route("settings.profile.edit"),
     icon: UserIcon,
-    current: false,
+    current: route().current("settings.profile.edit"),
     children: [],
   },
   {
-    label: "Projects",
-    href: "#",
-    icon: UserIcon,
-    current: false,
-    children: [
-      {
-        label: "All",
-        href: "#",
-        current: false,
-      },
-      {
-        label: "New project",
-        href: "#",
-        current: false,
-      },
-    ],
+    label: "Account",
+    href: route("settings.account.edit"),
+    icon: GearIcon,
+    current: route().current("settings.account.edit"),
+    children: [],
   },
   {
-    label: "Calendar",
+    label: "Notifications",
     href: "#",
-    icon: UserIcon,
-    current: false,
-    children: [
-      {
-        label: "Year",
-        href: "#",
-        current: false,
-      },
-      {
-        label: "Month",
-        href: "#",
-        current: true,
-      },
-      {
-        label: "Week",
-        href: "#",
-        current: false,
-      },
-    ],
-  },
-  {
-    label: "Documents",
-    href: "#",
-    icon: UserIcon,
+    icon: BellIcon,
     current: false,
     children: [],
   },

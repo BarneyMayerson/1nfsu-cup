@@ -5,7 +5,7 @@ import AuthUserSidebarMenu from "@/Navigations/AuthUserSidebarMenu.vue";
 </script>
 
 <template>
-  <Head title="Your profile" />
+  <Head title="Account settings" />
   <div class="container mx-auto">
     <AuthUserTopSection />
 
@@ -17,7 +17,7 @@ import AuthUserSidebarMenu from "@/Navigations/AuthUserSidebarMenu.vue";
       >
         <AuthUserSidebarMenu />
       </div>
-      <main class="grow rounded-lg">Public Prifile page goes here</main>
+      <main class="grow rounded-lg">Account Settings page goes here</main>
     </div>
   </div>
 </template>
