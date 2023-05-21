@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\User\Settings\AccountController;
+use App\Http\Controllers\User\Settings\NotificationsController;
 use App\Http\Controllers\User\Settings\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,13 @@ Route::middleware("auth")
         Route::get("account", [AccountController::class, "index"])->name(
             "account.edit"
         );
+
+        Route::get("notifications/browser", [
+            NotificationsController::class,
+            "editBrowser",
+        ])->name("notifications.editBrowser");
+        Route::get("notifications/email", [
+            NotificationsController::class,
+            "editEmail",
+        ])->name("notifications.editEmail");
     });

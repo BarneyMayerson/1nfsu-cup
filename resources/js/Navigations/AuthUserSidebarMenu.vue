@@ -25,7 +25,18 @@ const navItems = [
     href: "#",
     icon: BellIcon,
     current: false,
-    children: [],
+    children: [
+      {
+        label: "Browser",
+        href: route("settings.notifications.editBrowser"),
+        current: route().current("settings.notifications.editBrowser"),
+      },
+      {
+        label: "Email",
+        href: route("settings.notifications.editEmail"),
+        current: route().current("settings.notifications.editEmail"),
+      },
+    ],
   },
 ];
 </script>
