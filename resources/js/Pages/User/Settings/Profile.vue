@@ -17,7 +17,15 @@ import AuthUserSidebarMenu from "@/Navigations/AuthUserSidebarMenu.vue";
       >
         <AuthUserSidebarMenu />
       </div>
-      <main class="grow rounded-lg">Public Prifile page goes here</main>
+      <main class="grow">
+        <div class="border-b border-gray-300 pb-2 dark:border-gray-700">
+          <h2 class="text-xl font-semibold">Public profile</h2>
+        </div>
+        <div class="mt-3 flex shrink-0 flex-col gap-4 md:mt-6 md:flex-row">
+          <div class="h-16 border md:basis-3/4"></div>
+          <div class="h-20 border md:basis-1/4"></div>
+        </div>
+      </main>
     </div>
   </div>
 </template>

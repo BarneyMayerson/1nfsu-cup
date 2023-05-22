@@ -10,7 +10,7 @@ import { route } from "momentum-trail";
 const { close } = useModal();
 
 const form = useForm("RegisterForm", {
-  name: "",
+  username: "",
   email: "",
   password: "",
   password_confirmation: "",
@@ -24,10 +24,11 @@ function submit() {
 <template>
   <form @submit.prevent="submit" class="w-full space-y-10">
     <FloatLabelInput
-      v-model="form.name"
-      label="Name"
-      id="name"
-      :error="form.errors.name"
+      v-model="form.username"
+      label="Username"
+      id="username"
+      :error="form.errors.username"
+      maxlength="16"
       required
     />
     <FloatLabelInput
