@@ -1,12 +1,12 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { mount } from "@vue/test-utils";
-import LoginForm from "@/Forms/User/Settings/ProfileForm.vue";
+import ProfileForm from "@/Forms/User/Settings/ProfileForm.vue";
 
-describe("LoginForm.vue", () => {
+describe("ProfileForm.vue", () => {
   let wrapper = null;
 
   beforeEach(() => {
-    wrapper = mount(LoginForm);
+    wrapper = mount(ProfileForm);
   });
 
   it("renders name input", () => {
