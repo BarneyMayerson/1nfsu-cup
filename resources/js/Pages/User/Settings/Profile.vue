@@ -3,6 +3,10 @@ import { Head } from "@inertiajs/vue3";
 import AuthUserTopSection from "@/Components/User/AuthUserTopSection.vue";
 import AuthUserSidebarMenu from "@/Navigations/AuthUserSidebarMenu.vue";
 import ProfileForm from "@/Forms/User/Settings/ProfileForm.vue";
+
+const props = defineProps({
+  user: Object,
+});
 </script>
 
 <template>
@@ -24,7 +28,7 @@ import ProfileForm from "@/Forms/User/Settings/ProfileForm.vue";
         </div>
         <div class="mt-3 flex shrink-0 flex-col gap-4 md:mt-6 md:flex-row">
           <div class="py-6 md:basis-3/4">
-            <ProfileForm />
+            <ProfileForm :user="props.user" />
           </div>
           <div class="h-20 border md:basis-1/4"></div>
         </div>

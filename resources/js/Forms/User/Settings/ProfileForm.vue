@@ -1,14 +1,14 @@
 <script setup>
-import { computed } from "vue";
-import { useForm, usePage } from "@inertiajs/vue3";
+import { useForm } from "@inertiajs/vue3";
 import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 import Button from "@/Components/Shared/Button.vue";
 import UserIcon from "@/Components/Shared/Icons/UserIcon.vue";
 
-const user = computed(() => usePage().props.auth.user);
-
+const props = defineProps({
+  user: Object,
+});
 const form = useForm("ProfileForm", {
-  name: user.value.name,
+  name: props.user.name,
 });
 </script>
 

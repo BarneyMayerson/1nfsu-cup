@@ -6,7 +6,13 @@ describe("ProfileForm.vue", () => {
   let wrapper = null;
 
   beforeEach(() => {
-    wrapper = mount(ProfileForm);
+    wrapper = mount(ProfileForm, {
+      props: {
+        user: {
+          name: "",
+        },
+      },
+    });
   });
 
   it("renders name input", () => {
