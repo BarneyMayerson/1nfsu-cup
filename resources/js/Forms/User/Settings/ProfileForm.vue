@@ -46,6 +46,7 @@ function submit() {
 
     <Button
       type="submit"
+      intent="success"
       :disabled="form.processing"
       :loading="form.processing"
     >
