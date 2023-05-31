@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rule;
 use Inertia\Response;
@@ -14,7 +15,6 @@ class ProfileController extends Controller
     {
         $user = [
             "name" => auth()->user()->name,
-            "email" => auth()->user()->email,
         ];
 
         return Inertia::render("User/Settings/Profile", compact("user"));
@@ -27,13 +27,9 @@ class ProfileController extends Controller
                 "required",
                 Rule::unique("users", "name")->ignore(auth()->id()),
             ],
-            "email" => [
-                "required",
-                "email:filter",
-                Rule::unique("users", "email")->ignore(auth()->id()),
-            ],
         ]);
 
+        /** @var User $user */
         $user = auth()->user();
         $user->update($attributes);
 

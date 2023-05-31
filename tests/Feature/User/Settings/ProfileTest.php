@@ -61,42 +61,4 @@ class ProfileTest extends TestCase
         $response = $this->put("settings/profile", $attributes);
         $response->assertSessionHasErrors("name");
     }
-
-    /** @test */
-    function user_can_change_email_address()
-    {
-        $user = User::factory()->create();
-
-        $this->signIn($user);
-
-        $oldEmail = $user->email;
-
-        $attributes = [
-            "name" => $user->name,
-            "email" => "new@mail.com",
-        ];
-
-        $this->put("settings/profile", $attributes);
-
-        $this->assertDatabaseHas("users", $attributes);
-        $this->assertDatabaseMissing("users", ["email" => $oldEmail]);
-    }
-
-    /** @test */
-    function email_must_be_unique()
-    {
-        User::factory()->create([
-            "email" => "JohnDoe@mail.com",
-        ]);
-
-        $this->signIn();
-
-        $attributes = [
-            "name" => auth()->user()->name,
-            "email" => "JohnDoe@mail.com",
-        ];
-
-        $response = $this->put("settings/profile", $attributes);
-        $response->assertSessionHasErrors("email");
-    }
 }
