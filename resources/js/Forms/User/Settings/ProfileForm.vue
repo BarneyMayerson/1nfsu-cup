@@ -1,20 +1,9 @@
 <script setup>
-import { useForm, usePage } from "@inertiajs/vue3";
+import { useForm } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
 import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 import Button from "@/Components/Shared/Button.vue";
-import { showFlash } from "@/Services/Flash";
-
-function flash() {
-  const flash = usePage().props.flash;
-
-  showFlash({
-    message: flash.message,
-    type: flash.type,
-    position: flash.position,
-    timeout: flash.timeout,
-  });
-}
+import { flash } from "@/Services/Flash";
 
 const props = defineProps({
   user: Object,

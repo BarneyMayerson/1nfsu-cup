@@ -1,12 +1,12 @@
 <script setup>
-import { useForm, usePage } from "@inertiajs/vue3";
+import { useForm } from "@inertiajs/vue3";
 import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 import PasswordInput from "@/Components/Shared/PasswordInput.vue";
 import PrimaryLikeGameButton from "@/Components/Shared/PrimaryLikeGameButton.vue";
 import SecondaryLikeGameButton from "@/Components/Shared/SecondaryLikeGameButton.vue";
 import { useModal } from "momentum-modal";
 import { route } from "momentum-trail";
-import { showFlash } from "@/Services/Flash";
+import { flash } from "@/Services/Flash";
 
 const { close } = useModal();
 
@@ -14,19 +14,6 @@ const props = defineProps({
   email: String,
   token: String,
 });
-
-function flashAndClose() {
-  const flash = usePage().props.flash;
-
-  showFlash({
-    message: flash.message,
-    type: flash.type,
-    position: flash.position,
-    timeout: flash.timeout,
-  });
-
-  // close();
-}
 
 const form = useForm("ForgotPasswordForm", {
   token: props.token,
@@ -37,7 +24,7 @@ const form = useForm("ForgotPasswordForm", {
 
 function submit() {
   form.post(route("password.store"), {
-    onSuccess: () => flashAndClose(),
+    onSuccess: () => flash(),
   });
 }
 </script>
