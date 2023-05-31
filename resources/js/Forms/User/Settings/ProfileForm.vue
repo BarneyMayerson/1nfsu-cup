@@ -1,15 +1,35 @@
 <script setup>
-import { useForm } from "@inertiajs/vue3";
+import { useForm, usePage } from "@inertiajs/vue3";
+import { route } from "momentum-trail";
 import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
 import Button from "@/Components/Shared/Button.vue";
-import UserIcon from "@/Components/Shared/Icons/UserIcon.vue";
+import { showFlash } from "@/Services/Flash";
+
+function flash() {
+  const flash = usePage().props.flash;
+
+  showFlash({
+    message: flash.message,
+    type: flash.type,
+    position: flash.position,
+    timeout: flash.timeout,
+  });
+}
 
 const props = defineProps({
   user: Object,
 });
+
 const form = useForm("ProfileForm", {
   name: props.user.name,
 });
+
+function submit() {
+  form.put(route("settings.profile.update"), {
+    preserveScroll: true,
+    onSuccess: () => flash(),
+  });
+}
 </script>
 
 <template>
@@ -24,39 +44,12 @@ const form = useForm("ProfileForm", {
       required
     />
 
-    <div class="flex space-x-2">
-      <Button :icon-left="UserIcon"> Update profile </Button>
-      <Button :icon-right="UserIcon" intent="secondary">
-        Update profile
-      </Button>
-      <Button :icon-left="UserIcon" intent="warning"> Update profile </Button>
-      <Button :icon-left="UserIcon" intent="danger"> Update profile </Button>
-    </div>
-
-    <div class="mt-4 flex space-x-2">
-      <Button :icon-left="UserIcon" loading> Update profile </Button>
-      <Button :icon-left="UserIcon" intent="secondary" loading>
-        Update profile
-      </Button>
-      <Button :icon-left="UserIcon" intent="warning" loading>
-        Update profile
-      </Button>
-      <Button :icon-left="UserIcon" intent="danger" loading>
-        Update profile
-      </Button>
-    </div>
-
-    <div class="mt-4 flex space-x-2">
-      <Button :icon-left="UserIcon" disabled> Update profile </Button>
-      <Button :icon-left="UserIcon" intent="secondary" disabled>
-        Update profile
-      </Button>
-      <Button :icon-left="UserIcon" intent="warning" disabled>
-        Update profile
-      </Button>
-      <Button :icon-left="UserIcon" intent="danger" disabled>
-        Update profile
-      </Button>
-    </div>
+    <Button
+      type="submit"
+      :disabled="form.processing"
+      :loading="form.processing"
+    >
+      Update profile
+    </Button>
   </form>
 </template>
