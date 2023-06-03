@@ -2,6 +2,8 @@
 import { ref } from "vue";
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
+import CountrySelect from "@/Components/CountrySelector/CountrySelect.vue";
+import CountryMultiselect from "@/Components/CountrySelector/CountryMultiselect.vue";
 
 const imgNotFoundClasses = ref("");
 </script>
@@ -45,6 +47,16 @@ const imgNotFoundClasses = ref("");
           class="mt-8 lg:col-span-4 lg:mr-4 xl:absolute xl:inset-0 xl:left-2/3 xl:mr-0 xl:mt-24"
         >
           <LikeGameNav />
+        </div>
+      </div>
+      <div class="mt-8">
+        <div class="flex space-x-8">
+          <div class="w-72">
+            <CountrySelect />
+          </div>
+          <div class="flex-1">
+            <CountryMultiselect />
+          </div>
         </div>
       </div>
     </div>
