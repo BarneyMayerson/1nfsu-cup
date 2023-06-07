@@ -50,13 +50,8 @@ const imgNotFoundClasses = ref("");
         </div>
       </div>
       <div class="mt-8">
-        <div class="flex space-x-8">
-          <div class="w-72">
-            <CountrySelect />
-          </div>
-          <div class="flex-1">
-            <CountryMultiselect />
-          </div>
+        <div class="w-96">
+          <CountryMultiselect />
         </div>
       </div>
     </div>
