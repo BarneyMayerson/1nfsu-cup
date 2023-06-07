@@ -3,7 +3,6 @@ import { ref } from "vue";
 import { Head } from "@inertiajs/vue3";
 import LikeGameNav from "@/Navigations/LikeGameNav.vue";
 import CountrySelect from "@/Components/CountrySelector/CountrySelect.vue";
-import CountryMultiselect from "@/Components/CountrySelector/CountryMultiselect.vue";
 
 const imgNotFoundClasses = ref("");
 </script>
@@ -51,7 +50,7 @@ const imgNotFoundClasses = ref("");
       </div>
       <div class="mt-8">
         <div class="w-96">
-          <CountryMultiselect />
+          <CountrySelect />
         </div>
       </div>
     </div>
