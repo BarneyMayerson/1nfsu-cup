@@ -125,25 +125,4 @@ const selectedCountry = ref("");
 .multiselect__option--group.multiselect__option--highlight::after {
   @apply bg-gray-600 dark:bg-sky-950;
 }
-
-.multiselect--active .multiselect__select {
-  transform: rotateZ(180deg);
-}
-
-.multiselect__select {
-  line-height: 16px;
-  display: block;
-  position: absolute;
-  box-sizing: border-box;
-  width: 40px;
-  height: 38px;
-  right: 1px;
-  top: 1px;
-  padding: 4px 8px;
-  margin: 0;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
 </style>
