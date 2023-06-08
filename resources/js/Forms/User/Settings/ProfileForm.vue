@@ -2,6 +2,7 @@
 import { useForm } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
 import FloatLabelInput from "@/Components/Shared/FloatLabelInput.vue";
+import CountrySelect from "@/Components/CountrySelector/CountrySelect.vue";
 import Button from "@/Components/Shared/Button.vue";
 import { flash } from "@/Services/Flash";
 
@@ -11,7 +12,12 @@ const props = defineProps({
 
 const form = useForm("ProfileForm", {
   name: props.user.name,
+  country: props.user.country ?? null,
 });
+
+function changeCountry(code) {
+  form.country = code;
+}
 
 function submit() {
   form.put(route("settings.profile.update"), {
@@ -31,6 +37,12 @@ function submit() {
       hint="Your name may appear around NFSU Cup where you contribute. You can change it at any time."
       :error="form.errors.name"
       required
+    />
+
+    <CountrySelect
+      id="country"
+      @country-selected="changeCountry"
+      :init-value="props.user.country"
     />
 
     <Button

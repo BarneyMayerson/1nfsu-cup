@@ -35,7 +35,6 @@ class ProfileTest extends TestCase
 
         $attributes = [
             "name" => "New Name",
-            "email" => $user->email,
         ];
 
         $this->put("settings/profile", $attributes);
@@ -55,10 +54,27 @@ class ProfileTest extends TestCase
 
         $attributes = [
             "name" => "John Doe",
-            "email" => auth()->user()->email,
         ];
 
         $response = $this->put("settings/profile", $attributes);
         $response->assertSessionHasErrors("name");
+    }
+
+    /** @test */
+    function user_can_change_country()
+    {
+        $user = User::factory()->create();
+
+        $this->signIn($user);
+
+        $attributes = [
+            "name" => $user->name,
+            "country" => "BE",
+        ];
+
+        $this->put("settings/profile", $attributes);
+
+        $this->assertDatabaseHas("users", $attributes);
+        $this->assertDatabaseMissing("users", ["country" => null]);
     }
 }

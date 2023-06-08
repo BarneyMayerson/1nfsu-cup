@@ -13,22 +13,29 @@ const props = defineProps({
     type: String,
     default: ".svg",
   },
+  initValue: {
+    type: String,
+    default: "",
+  },
 });
 
 const countryFlagSrc = (code) =>
   props.flagsPath + code.toLowerCase() + props.flagsExt;
 
-const selectedCountry = ref("");
+const country = ref(
+  countryListAlpha2Array.find((country) => country.code === props.initValue)
+);
 </script>
 
 <template>
   <VueMultiselect
-    v-model="selectedCountry"
+    v-model="country"
     :options="countryListAlpha2Array"
     track-by="code"
     label="name"
     placeholder="Search country"
     :show-labels="false"
+    @select="$emit('countrySelected', country.code)"
   >
     <template v-slot:singleLabel="props">
       <div class="flex items-start">

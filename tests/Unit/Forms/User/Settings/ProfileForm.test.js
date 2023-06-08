@@ -20,4 +20,10 @@ describe("ProfileForm.vue", () => {
 
     expect(nameInput.exists()).toBeTruthy();
   });
+
+  it("renders country select input", () => {
+    const countryInput = wrapper.find("#country");
+
+    expect(countryInput.exists()).toBeTruthy();
+  });
 });

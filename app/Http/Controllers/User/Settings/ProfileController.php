@@ -15,6 +15,7 @@ class ProfileController extends Controller
     {
         $user = [
             "name" => auth()->user()->name,
+            "country" => auth()->user()->country,
         ];
 
         return Inertia::render("User/Settings/Profile", compact("user"));
@@ -27,6 +28,7 @@ class ProfileController extends Controller
                 "required",
                 Rule::unique("users", "name")->ignore(auth()->id()),
             ],
+            "country" => ["nullable", "string", "max:6"],
         ]);
 
         /** @var User $user */
