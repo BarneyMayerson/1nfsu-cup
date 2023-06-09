@@ -39,12 +39,14 @@ function submit() {
       required
     />
 
-    <CountrySelect
-      id="country"
-      @country-selected="changeCountry"
-      :init-value="props.user.country"
-    />
-
+    <div>
+      <p class="mb-1 ml-3 text-sm text-gray-600 dark:text-gray-300">Country</p>
+      <CountrySelect
+        id="country"
+        @country-selected="changeCountry"
+        :init-value="props.user.country"
+      />
+    </div>
     <Button
       type="submit"
       intent="success"

@@ -75,7 +75,7 @@ const country = ref(
 }
 
 .multiselect__tags {
-  @apply bg-white dark:bg-sky-900;
+  @apply border-gray-400 bg-white dark:bg-sky-900;
 }
 
 .multiselect__tag {
@@ -131,5 +131,9 @@ const country = ref(
 
 .multiselect__option--group.multiselect__option--highlight::after {
   @apply bg-gray-600 dark:bg-sky-950;
+}
+
+.multiselect__content-wrapper {
+  @apply border border-t-0 border-gray-400;
 }
 </style>
