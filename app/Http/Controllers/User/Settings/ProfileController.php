@@ -20,9 +20,7 @@ class ProfileController extends Controller
         $user = [
             "name" => $authUser->name,
             "country" => $authUser->country,
-            "avatar" => $authUser->avatar
-                ? Storage::disk("public")->url($authUser->avatar)
-                : null,
+            "avatar" => $authUser->avatar,
         ];
 
         return Inertia::render("User/Settings/Profile", compact("user"));
@@ -93,7 +91,7 @@ class ProfileController extends Controller
         /** @var User $user */
         $user = auth()->user();
 
-        $this->removeFile($user->avatar);
+        $this->removeFile($user->getRawOriginal("avatar"));
 
         $user->update(["avatar" => null]);
 

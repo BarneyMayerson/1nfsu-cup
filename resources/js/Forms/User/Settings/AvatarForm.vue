@@ -52,7 +52,7 @@ function removeAvatar() {
     <p class="text-sm text-gray-600 dark:text-gray-300">Profile picture</p>
 
     <div class="mx-auto mt-1 h-64 w-64">
-      <Avatar :src="src" :isFromBaseUrl="false" />
+      <Avatar :src="src" />
     </div>
 
     <form @submit.prevent="submit">
