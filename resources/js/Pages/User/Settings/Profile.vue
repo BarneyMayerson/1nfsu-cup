@@ -3,6 +3,7 @@ import { Head } from "@inertiajs/vue3";
 import AuthUserTopSection from "@/Components/User/AuthUserTopSection.vue";
 import AuthUserSidebarMenu from "@/Navigations/AuthUserSidebarMenu.vue";
 import ProfileForm from "@/Forms/User/Settings/ProfileForm.vue";
+import AvatarForm from "@/Forms/User/Settings/AvatarForm.vue";
 
 const props = defineProps({
   user: Object,
@@ -12,7 +13,7 @@ const props = defineProps({
 <template>
   <Head title="Your profile" />
   <div class="container mx-auto">
-    <AuthUserTopSection />
+    <AuthUserTopSection :user="props.user" />
 
     <div
       class="-mx-4 mt-4 flex flex-col gap-4 rounded border border-gray-600/10 bg-gray-100 px-4 py-6 dark:border-gray-600/50 dark:bg-gray-900/90 dark:bg-sky-900 md:flex-row md:gap-6"
@@ -30,7 +31,9 @@ const props = defineProps({
           <div class="py-6 md:basis-3/4">
             <ProfileForm :user="props.user" />
           </div>
-          <div class="h-20 border md:basis-1/4"></div>
+          <div class="md:basis-1/4">
+            <AvatarForm :user="props.user" />
+          </div>
         </div>
       </main>
     </div>

@@ -15,6 +15,13 @@ Route::middleware("auth")
         Route::put("profile", [ProfileController::class, "update"])->name(
             "profile.update"
         );
+        Route::post("profile", [ProfileController::class, "setAvatar"])->name(
+            "profile.setAvatar"
+        );
+        Route::delete("profile", [
+            ProfileController::class,
+            "removeAvatar",
+        ])->name("profile.removeAvatar");
 
         Route::get("account", [AccountController::class, "index"])->name(
             "account.edit"

@@ -16,7 +16,6 @@ watchEffect(() => {
     .then(() => (verifiedSrc.value = props.src))
     .catch((e) => {
       verifiedSrc.value = null;
-      throw e;
     });
 });
 </script>

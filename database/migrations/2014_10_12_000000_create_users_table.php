@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string("name");
             $table->string("username", 16)->nullable();
             $table->string("country", 6)->nullable();
+            $table->string("avatar")->nullable();
             $table->text("bio")->nullable();
             $table->timestamp("email_verified_at")->nullable();
             $table->string("password");

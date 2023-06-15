@@ -1,16 +1,17 @@
 <script setup>
-import { computed } from "vue";
-import { Link, usePage } from "@inertiajs/vue3";
+import { Link } from "@inertiajs/vue3";
 import Avatar from "@/Components/User/Avatar.vue";
 
-const user = computed(() => usePage().props.auth.user);
+defineProps({
+  user: Object,
+});
 </script>
 
 <template>
   <div class="flex items-center justify-between">
     <div class="flex items-center">
       <span class="h-16 w-16">
-        <Avatar :src="user.avatar" size="16" />
+        <Avatar :src="user.avatar" />
       </span>
       <div>
         <h2 class="text-2xl font-semibold">
