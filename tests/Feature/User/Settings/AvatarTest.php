@@ -25,7 +25,7 @@ class AvatarTest extends TestCase
 
         $avatar = UploadedFile::fake()->image("image.jpg");
 
-        $this->post("settings/profile", compact("avatar"));
+        $this->post("settings/profile/avatar", compact("avatar"));
 
         $user->refresh();
 
@@ -44,7 +44,7 @@ class AvatarTest extends TestCase
 
         $avatar = UploadedFile::fake()->image("image.jpg");
 
-        $this->post("settings/profile", compact("avatar"));
+        $this->post("settings/profile/avatar", compact("avatar"));
 
         $user->refresh();
 
@@ -53,7 +53,7 @@ class AvatarTest extends TestCase
         $this->assertNotNull($filePath);
         Storage::disk("public")->assertExists($filePath);
 
-        $this->delete("settings/profile");
+        $this->delete("settings/profile/avatar");
 
         $this->assertNull($user->avatar);
         Storage::disk("public")->assertMissing($filePath);
@@ -70,7 +70,7 @@ class AvatarTest extends TestCase
 
         $avatar = UploadedFile::fake()->image("image.jpg");
 
-        $this->post("settings/profile", compact("avatar"));
+        $this->post("settings/profile/avatar", compact("avatar"));
 
         $user->refresh();
 
@@ -80,7 +80,7 @@ class AvatarTest extends TestCase
 
         $newAvatar = UploadedFile::fake()->image("new-image.jpg");
 
-        $this->post("settings/profile", [
+        $this->post("settings/profile/avatar", [
             "avatar" => $newAvatar,
         ]);
 
