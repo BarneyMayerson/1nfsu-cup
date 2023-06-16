@@ -62,7 +62,7 @@ class ProfileController extends Controller
             DIRECTORY_SEPARATOR .
             $user->id;
 
-        $oldAvatar = $user->avatar;
+        $oldAvatar = $user->getRawOriginal("avatar");
 
         try {
             $path = request()
