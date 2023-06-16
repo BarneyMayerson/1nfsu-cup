@@ -35,15 +35,17 @@ function submit() {
 }
 
 function removeAvatar() {
-  src.value = null;
+  if (confirm("Are you sure you want to reset your current avatar?")) {
+    src.value = null;
 
-  form.delete(route("settings.profile.removeAvatar"), {
-    preserveScroll: true,
-    onSuccess: () => {
-      flash();
-      hasAvatar.value = false;
-    },
-  });
+    form.delete(route("settings.profile.removeAvatar"), {
+      preserveScroll: true,
+      onSuccess: () => {
+        flash();
+        hasAvatar.value = false;
+      },
+    });
+  }
 }
 </script>
 
