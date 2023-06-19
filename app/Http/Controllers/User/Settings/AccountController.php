@@ -10,6 +10,13 @@ class AccountController extends Controller
 {
     public function index(): Response
     {
-        return Inertia::render("User/Settings/Account");
+        $authUser = auth()->user();
+
+        $user = [
+            "name" => $authUser->name,
+            "country" => $authUser->country,
+            "avatar" => $authUser->avatar,
+        ];
+        return Inertia::render("User/Settings/Account", compact("user"));
     }
 }

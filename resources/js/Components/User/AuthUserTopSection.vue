@@ -9,7 +9,7 @@ defineProps({
 
 <template>
   <div class="flex items-center justify-between">
-    <div class="flex items-center">
+    <div class="flex items-center space-x-2">
       <span class="h-16 w-16">
         <Avatar :src="user.avatar" />
       </span>
