@@ -23,4 +23,23 @@ class AccountTest extends TestCase
 
         $this->get("settings/account")->assertOk();
     }
+
+    /** @test */
+    function user_can_change_email()
+    {
+        $this->withoutExceptionHandling();
+        $user = User::factory()->create();
+
+        $this->signIn($user);
+
+        $oldMail = $user->email;
+        $attributes = [
+            "email" => "new-mail@test.com",
+        ];
+
+        $this->post("settings/account/email", $attributes);
+
+        $this->assertDatabaseHas("users", ["email" => $user->refresh()->email]);
+        $this->assertDatabaseMissing("users", ["email" => $oldMail]);
+    }
 }

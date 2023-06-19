@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\User\Settings\AccountController;
+use App\Http\Controllers\User\Settings\EmailController;
 use App\Http\Controllers\User\Settings\NotificationsController;
 use App\Http\Controllers\User\Settings\ProfileController;
 use App\Http\Controllers\User\Settings\ProfileAvatarController;
@@ -27,6 +28,9 @@ Route::middleware("auth")
 
         Route::get("account", [AccountController::class, "index"])->name(
             "account.edit"
+        );
+        Route::post("account/email", [EmailController::class, "store"])->name(
+            "account.email.store"
         );
 
         Route::get("notifications/browser", [
