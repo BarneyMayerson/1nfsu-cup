@@ -41,7 +41,7 @@ const navItems = [
 ];
 </script>
 <template>
-  <nav>
+  <nav class="border-b pb-4 md:border-b-0 md:pb-0">
     <ul role="list" class="space-y-1">
       <li v-for="item in navItems" :key="item.label">
         <VerticalNavItem :item="item" />
