@@ -27,7 +27,6 @@ class AccountTest extends TestCase
     /** @test */
     function user_can_change_email()
     {
-        $this->withoutExceptionHandling();
         $user = User::factory()->create();
 
         $this->signIn($user);
@@ -41,5 +40,23 @@ class AccountTest extends TestCase
 
         $this->assertDatabaseHas("users", ["email" => $user->refresh()->email]);
         $this->assertDatabaseMissing("users", ["email" => $oldMail]);
+    }
+
+    /** @test */
+    function user_can_change_name()
+    {
+        $user = User::factory()->create();
+
+        $this->signIn($user);
+
+        $oldName = $user->name;
+        $attributes = [
+            "name" => "John",
+        ];
+
+        $this->post("settings/account/name", $attributes);
+
+        $this->assertDatabaseHas("users", ["name" => $user->refresh()->name]);
+        $this->assertDatabaseMissing("users", ["name" => $oldName]);
     }
 }

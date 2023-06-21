@@ -36,6 +36,17 @@ const props = defineProps({
             <Button intent="warning">Change email ...</Button>
           </Link>
         </div>
+
+        <div class="mt-10 border-b border-gray-300 pb-2 dark:border-gray-500">
+          <h2 class="text-xl font-semibold">Change name</h2>
+        </div>
+
+        <div class="mt-6">
+          <p class="mb-3">Changing your name will have certain side effects.</p>
+          <Link :href="route('settings.account.name.edit')" as="button">
+            <Button>Change name ...</Button>
+          </Link>
+        </div>
       </main>
     </div>
   </div>

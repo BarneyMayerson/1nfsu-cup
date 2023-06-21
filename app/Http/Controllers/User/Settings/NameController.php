@@ -10,11 +10,11 @@ use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Momentum\Modal\Modal;
 
-class EmailController extends Controller
+class NameController extends Controller
 {
     public function edit(): Modal
     {
-        return Inertia::modal("User/Settings/Email")->baseRoute(
+        return Inertia::modal("User/Settings/Name")->baseRoute(
             "settings.account.edit"
         );
     }
@@ -22,7 +22,7 @@ class EmailController extends Controller
     public function update(Request $request): RedirectResponse
     {
         $attributes = $request->validate([
-            "email" => ["required", "email:filter", Rule::unique("users")],
+            "name" => ["required", "min:4", Rule::unique("users")],
         ]);
 
         /** @var User $user */
@@ -31,7 +31,7 @@ class EmailController extends Controller
 
         return to_route("settings.account.edit")->with("status", [
             "type" => "success",
-            "message" => "Email has been changed.",
+            "message" => "Name has been changed.",
         ]);
     }
 }

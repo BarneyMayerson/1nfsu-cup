@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\User\Settings\AccountController;
 use App\Http\Controllers\User\Settings\EmailController;
+use App\Http\Controllers\User\Settings\NameController;
 use App\Http\Controllers\User\Settings\NotificationsController;
 use App\Http\Controllers\User\Settings\ProfileController;
 use App\Http\Controllers\User\Settings\ProfileAvatarController;
@@ -34,6 +35,12 @@ Route::middleware("auth")
         );
         Route::post("account/email", [EmailController::class, "update"])->name(
             "account.email.update"
+        );
+        Route::get("account/name", [NameController::class, "edit"])->name(
+            "account.name.edit"
+        );
+        Route::post("account/name", [NameController::class, "update"])->name(
+            "account.name.update"
         );
 
         Route::get("notifications/browser", [
