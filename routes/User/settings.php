@@ -29,8 +29,11 @@ Route::middleware("auth")
         Route::get("account", [AccountController::class, "index"])->name(
             "account.edit"
         );
-        Route::post("account/email", [EmailController::class, "store"])->name(
-            "account.email.store"
+        Route::get("account/email", [EmailController::class, "edit"])->name(
+            "account.email.edit"
+        );
+        Route::post("account/email", [EmailController::class, "update"])->name(
+            "account.email.update"
         );
 
         Route::get("notifications/browser", [

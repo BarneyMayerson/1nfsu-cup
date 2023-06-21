@@ -1,7 +1,9 @@
 <script setup>
-import { Head } from "@inertiajs/vue3";
+import { Head, Link } from "@inertiajs/vue3";
+import { route } from "momentum-trail";
 import AuthUserTopSection from "@/Components/User/AuthUserTopSection.vue";
 import AuthUserSidebarMenu from "@/Navigations/AuthUserSidebarMenu.vue";
+import Button from "@/Components/Shared/Button.vue";
 
 const props = defineProps({
   user: Object,
@@ -21,7 +23,20 @@ const props = defineProps({
       >
         <AuthUserSidebarMenu />
       </div>
-      <main class="grow rounded-lg">Account Settings page goes here</main>
+      <main class="grow">
+        <div class="border-b border-gray-300 pb-2 dark:border-gray-500">
+          <h2 class="text-xl font-semibold">Change email</h2>
+        </div>
+
+        <div class="mt-6">
+          <p class="mb-3">
+            Changing your email can have unintended side effects.
+          </p>
+          <Link :href="route('settings.account.email.edit')" as="button">
+            <Button intent="warning">Change email ...</Button>
+          </Link>
+        </div>
+      </main>
     </div>
   </div>
 </template>
