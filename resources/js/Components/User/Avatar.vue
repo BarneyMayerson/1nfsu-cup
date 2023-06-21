@@ -6,6 +6,7 @@ const props = defineProps({
 });
 
 const verifiedSrc = ref(null);
+const ready = ref(false);
 
 watchEffect(() => {
   const img = new Image();
@@ -13,15 +14,19 @@ watchEffect(() => {
   img.src = props.src;
   img
     .decode()
-    .then(() => (verifiedSrc.value = props.src))
+    .then(() => {
+      verifiedSrc.value = props.src;
+      ready.value = true;
+    })
     .catch((e) => {
       verifiedSrc.value = null;
+      ready.value = true;
     });
 });
 </script>
 
 <template>
-  <div class="inline-flex h-full w-full">
+  <div v-if="ready" class="inline-flex h-full w-full">
     <img
       v-if="verifiedSrc"
       class="inline-block h-full w-full rounded-full object-cover object-center ring-0 ring-offset-2 ring-offset-slate-400 dark:ring-offset-sky-500"
