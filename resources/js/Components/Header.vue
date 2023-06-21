@@ -43,7 +43,7 @@ const isHome = computed(() => usePage().props.isHome);
               <GuestSubmenu />
             </div>
 
-            <div class="block">
+            <div class="block md:hidden">
               <DisclosureButton
                 class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
               >
@@ -78,8 +78,8 @@ const isHome = computed(() => usePage().props.isHome);
                 <Avatar :src="currentUser.avatar" />
               </div>
               <div class="ml-4">
-                <div class="text-base font-medium">Tom Cook</div>
-                <div class="text-sm font-medium">tom@example.com</div>
+                <div class="text-base font-medium">{{ currentUser.name }}</div>
+                <div class="text-sm font-medium">{{ currentUser.email }}</div>
               </div>
               <button
                 type="button"
