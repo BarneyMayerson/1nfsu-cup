@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -52,5 +53,21 @@ class User extends Authenticatable
                 ? Storage::disk("public")->url($value)
                 : null
         );
+    }
+
+    protected function pureName(): Attribute
+    {
+        return Attribute::make(
+            get: fn(mixed $value, array $attributes) => strtolower(
+                preg_replace("/\s+/", "", $attributes["name"])
+            )
+        );
+    }
+
+    public static function findByNameWithoutWhitespaces(string $name)
+    {
+        return self::whereRaw("LOWER(REPLACE(`name`, ' ' ,'')) = ?", [
+            strtolower($name),
+        ])->first();
     }
 }
