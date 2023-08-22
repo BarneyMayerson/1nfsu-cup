@@ -6,21 +6,13 @@ import { countryListAlpha2Array } from "@/Countries/countries-list";
 import { flagSrc } from "@/Countries/flag";
 
 const props = defineProps({
-  flagsPath: {
-    type: String,
-    default: "/storage/static/flags/",
-  },
-  flagsExt: {
-    type: String,
-    default: ".svg",
-  },
   initValue: {
     type: String,
     default: "",
   },
 });
 
-const countryFlagSrc = (code) => flagSrc(code, props.flagsPath, props.flagsExt);
+const countryFlagSrc = (code) => flagSrc(code);
 
 const country = ref(
   countryListAlpha2Array.find((country) => country.code === props.initValue)
