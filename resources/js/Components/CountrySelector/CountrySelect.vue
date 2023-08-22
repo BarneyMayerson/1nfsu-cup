@@ -2,7 +2,8 @@
 import { ref } from "vue";
 import VueMultiselect from "vue-multiselect";
 import "vue-multiselect/dist/vue-multiselect.css";
-import { countryListAlpha2Array } from "./countries-list";
+import { countryListAlpha2Array } from "@/Countries/countries-list";
+import { flagSrc } from "@/Countries/flag";
 
 const props = defineProps({
   flagsPath: {
@@ -19,8 +20,7 @@ const props = defineProps({
   },
 });
 
-const countryFlagSrc = (code) =>
-  props.flagsPath + code.toLowerCase() + props.flagsExt;
+const countryFlagSrc = (code) => flagSrc(code, props.flagsPath, props.flagsExt);
 
 const country = ref(
   countryListAlpha2Array.find((country) => country.code === props.initValue)
