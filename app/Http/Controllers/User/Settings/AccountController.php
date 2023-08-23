@@ -14,6 +14,7 @@ class AccountController extends Controller
 
         $user = [
             "name" => $authUser->name,
+            "mergedName" => $foundUser->merged_name,
             "country" => $authUser->country,
             "avatar" => $authUser->avatar,
         ];

@@ -59,7 +59,7 @@ const isHome = computed(() => usePage().props.isHome);
         </div>
 
         <DisclosurePanel
-          class="space-y-4 divide-y rounded-lg border py-4"
+          class="block space-y-4 divide-y rounded-lg border py-4 md:hidden"
           v-slot="{ close }"
         >
           <nav aria-label="Site Nav" class="px-4">
@@ -90,10 +90,15 @@ const isHome = computed(() => usePage().props.isHome);
               </button>
             </div>
             <div class="mt-3 flex flex-col items-start gap-2">
-              <GenericMenuItem @click="close()" href="#"
-                >Your Profile</GenericMenuItem
+              <GenericMenuItem
+                @click="close()"
+                :href="route('public-profile', currentUser.merged_name)"
               >
-              <GenericMenuItem @click="close()" href="#"
+                Your Profile
+              </GenericMenuItem>
+              <GenericMenuItem
+                @click="close()"
+                :href="route('settings.account.edit')"
                 >Settings</GenericMenuItem
               >
               <GenericMenuItem

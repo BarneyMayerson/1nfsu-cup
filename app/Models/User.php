@@ -55,6 +55,17 @@ class User extends Authenticatable
         );
     }
 
+    protected function mergedName(): Attribute
+    {
+        return Attribute::make(
+            get: fn(mixed $value, array $attributes) => preg_replace(
+                "/\s+/",
+                "",
+                $attributes["name"]
+            )
+        );
+    }
+
     protected function pureName(): Attribute
     {
         return Attribute::make(

@@ -34,7 +34,12 @@ const authUser = computed(() => usePage().props.auth.user);
 
     <template #items>
       <DropdownItemsGroup label="Basic action">
-        <DropdownItem href="#">Your profile</DropdownItem>
+        <DropdownItem
+          :is="Link"
+          :href="route('public-profile', authUser.merged_name)"
+        >
+          Your profile
+        </DropdownItem>
         <DropdownItem :is="Link" :href="route('settings.profile.edit')">
           Settings
         </DropdownItem>

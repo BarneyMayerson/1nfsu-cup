@@ -17,6 +17,7 @@ class ProfileController extends Controller
 
         $user = [
             "name" => $authUser->name,
+            "mergedName" => $authUser->merged_name,
             "country" => $authUser->country,
             "avatar" => $authUser->avatar,
         ];

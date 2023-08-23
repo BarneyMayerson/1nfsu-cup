@@ -18,6 +18,7 @@ class PublicProfileController extends Controller
         $user = $foundUser
             ? [
                 "name" => $foundUser->name,
+                "mergedName" => $foundUser->merged_name,
                 "country" => $foundUser->country,
                 "avatar" => $foundUser->avatar,
             ]

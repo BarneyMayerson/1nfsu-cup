@@ -6,7 +6,6 @@ import { countryListAlpha2Array } from "@/Countries/countries-list";
 
 const props = defineProps(["user"]);
 
-const mergedName = props.user ? props.user.name.replace(" ", "") : null;
 const country = props.user
   ? countryListAlpha2Array.find(
       (country) => country.code === props.user.country
@@ -34,7 +33,7 @@ const flag = props.user ? flagSrc(props.user.country) : null;
               <h3 class="text-2xl font-semibold tracking-wide">
                 {{ user.name }}
               </h3>
-              <p class="opacity-50">{{ mergedName }}</p>
+              <p class="opacity-50">{{ user.mergedName }}</p>
             </div>
 
             <div>
