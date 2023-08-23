@@ -12,12 +12,8 @@ class AccountController extends Controller
     {
         $authUser = auth()->user();
 
-        $user = [
-            "name" => $authUser->name,
-            "mergedName" => $foundUser->merged_name,
-            "country" => $authUser->country,
-            "avatar" => $authUser->avatar,
-        ];
+        $user = $authUser->infoAttributes();
+
         return Inertia::render("User/Settings/Account", compact("user"));
     }
 }

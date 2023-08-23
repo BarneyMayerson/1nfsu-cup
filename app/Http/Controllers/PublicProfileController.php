@@ -15,14 +15,7 @@ class PublicProfileController extends Controller
             ? User::findByNameWithoutWhitespaces($request->name)
             : null;
 
-        $user = $foundUser
-            ? [
-                "name" => $foundUser->name,
-                "mergedName" => $foundUser->merged_name,
-                "country" => $foundUser->country,
-                "avatar" => $foundUser->avatar,
-            ]
-            : null;
+        $user = $foundUser ? $foundUser->infoAttributes() : null;
 
         return Inertia::render("PublicProfile", compact("user"));
     }

@@ -15,12 +15,7 @@ class ProfileController extends Controller
     {
         $authUser = auth()->user();
 
-        $user = [
-            "name" => $authUser->name,
-            "mergedName" => $authUser->merged_name,
-            "country" => $authUser->country,
-            "avatar" => $authUser->avatar,
-        ];
+        $user = $authUser->infoAttributes();
 
         return Inertia::render("User/Settings/Profile", compact("user"));
     }

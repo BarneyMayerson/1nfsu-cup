@@ -75,6 +75,16 @@ class User extends Authenticatable
         );
     }
 
+    public function infoAttributes(): array
+    {
+        return [
+            "name" => $this->name,
+            "mergedName" => $this->merged_name,
+            "country" => $this->country,
+            "avatar" => $this->avatar,
+        ];
+    }
+
     public static function findByNameWithoutWhitespaces(string $name)
     {
         return self::whereRaw("LOWER(REPLACE(`name`, ' ' ,'')) = ?", [
