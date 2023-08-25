@@ -43,4 +43,13 @@ class UserFactory extends Factory
             ]
         );
     }
+
+    public function admin()
+    {
+        return $this->state(
+            fn(array $attributes) => [
+                "is_admin" => true,
+            ]
+        );
+    }
 }
