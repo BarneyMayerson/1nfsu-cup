@@ -17,7 +17,8 @@ defineProps({
       <div>
         <h2 class="text-2xl font-semibold">
           <Link :href="route('public-profile', user.mergedName)">
-            {{ user.name }} ({{ user.mergedName }})
+            {{ user.name }}
+            <span class="opacity-50">({{ user.mergedName }})</span>
           </Link>
         </h2>
         <p>Your personal account</p>
