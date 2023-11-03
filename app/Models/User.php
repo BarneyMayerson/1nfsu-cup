@@ -3,7 +3,6 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -67,11 +66,7 @@ class User extends Authenticatable
 
     protected function pureName(): Attribute
     {
-        return Attribute::make(
-            get: fn(mixed $value, array $attributes) => strtolower(
-                preg_replace("/\s+/", "", $attributes["name"])
-            )
-        );
+        return Attribute::make(get: fn() => strtolower($this->merged_name));
     }
 
     public function isAdmin(): bool
@@ -79,6 +74,7 @@ class User extends Authenticatable
         return $this->is_admin;
     }
 
+    // TODO: Look at Eloquent: API Resources
     public function infoAttributes(): array
     {
         return [
@@ -89,7 +85,7 @@ class User extends Authenticatable
         ];
     }
 
-    public static function findByNameWithoutWhitespaces(string $name)
+    public static function findByNameWithoutWhitespaces(string $name): self|null
     {
         return self::whereRaw("LOWER(REPLACE(`name`, ' ' ,'')) = ?", [
             strtolower($name),
