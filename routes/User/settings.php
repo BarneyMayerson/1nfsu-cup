@@ -4,6 +4,7 @@ use App\Http\Controllers\User\Settings\AccountController;
 use App\Http\Controllers\User\Settings\EmailController;
 use App\Http\Controllers\User\Settings\NameController;
 use App\Http\Controllers\User\Settings\NotificationsController;
+use App\Http\Controllers\User\Settings\PasswordController;
 use App\Http\Controllers\User\Settings\ProfileController;
 use App\Http\Controllers\User\Settings\ProfileAvatarController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,14 @@ Route::middleware("auth")
         Route::post("account/name", [NameController::class, "update"])->name(
             "account.name.update"
         );
+        Route::get("account/password", [
+            PasswordController::class,
+            "edit",
+        ])->name("account.password.edit");
+        Route::post("account/password", [
+            PasswordController::class,
+            "update",
+        ])->name("account.password.update");
 
         Route::get("notifications/browser", [
             NotificationsController::class,

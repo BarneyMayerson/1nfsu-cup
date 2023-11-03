@@ -27,7 +27,6 @@ const props = defineProps({
         <div class="border-b border-gray-300 pb-2 dark:border-gray-500">
           <h2 class="text-xl font-semibold">Change email</h2>
         </div>
-
         <div class="mt-6">
           <p class="mb-3">
             Changing your email can have unintended side effects.
@@ -40,11 +39,23 @@ const props = defineProps({
         <div class="mt-10 border-b border-gray-300 pb-2 dark:border-gray-500">
           <h2 class="text-xl font-semibold">Change name</h2>
         </div>
-
         <div class="mt-6">
           <p class="mb-3">Changing your name will have certain side effects.</p>
           <Link :href="route('settings.account.name.edit')" as="button">
             <Button>Change name ...</Button>
+          </Link>
+        </div>
+
+        <div class="mt-10 border-b border-gray-300 pb-2 dark:border-gray-500">
+          <h2 class="text-xl font-semibold">Change password</h2>
+        </div>
+        <div class="mt-6">
+          <p class="mb-3">
+            Changing your password will not have certain side effects. Just
+            memorize about it.
+          </p>
+          <Link :href="route('settings.account.password.edit')" as="button">
+            <Button>Change password ...</Button>
           </Link>
         </div>
       </main>
