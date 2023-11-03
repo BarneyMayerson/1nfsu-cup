@@ -17,7 +17,7 @@ const navItems = [
     label: "Account",
     href: route("settings.account.edit"),
     icon: GearIcon,
-    current: route().current("settings.account.edit"),
+    current: route().current("settings.account.*"),
     children: [],
   },
   {
