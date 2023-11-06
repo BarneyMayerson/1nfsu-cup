@@ -58,6 +58,21 @@ const props = defineProps({
             <Button>Change password ...</Button>
           </Link>
         </div>
+
+        <div class="mt-10 border-b border-gray-300 pb-2 dark:border-gray-500">
+          <h2 class="text-xl font-semibold text-red-500 dark:text-red-300">
+            Delete account
+          </h2>
+        </div>
+        <div class="mt-6">
+          <p class="mb-3 text-red-500 dark:text-red-300">
+            Once you delete your account, there is no going back. Please be
+            certain.
+          </p>
+          <Link :href="route('settings.account.delete')" as="button">
+            <Button intent="danger">Delete your account ...</Button>
+          </Link>
+        </div>
       </main>
     </div>
   </div>

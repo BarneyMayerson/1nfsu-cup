@@ -31,6 +31,13 @@ Route::middleware("auth")
         Route::get("account", [AccountController::class, "index"])->name(
             "account.edit"
         );
+        Route::get("account/delete", [
+            AccountController::class,
+            "delete",
+        ])->name("account.delete");
+        Route::delete("account", [AccountController::class, "destroy"])->name(
+            "account.destroy"
+        );
         Route::get("account/email", [EmailController::class, "edit"])->name(
             "account.email.edit"
         );
