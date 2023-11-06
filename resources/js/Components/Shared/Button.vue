@@ -21,20 +21,16 @@ const props = defineProps({
 
 const buttonClass = computed(() => {
   return cva(
-    "inline-flex items-center px-3 py-0.5 min-h-[32px] justify-center text-sm rounded-md text-white",
+    "inline-flex items-center px-3 py-0.5 min-h-[32px] justify-center text-sm font-semibold rounded-md text-white",
     {
       variants: {
         intent: {
           success:
-            "bg-emerald-600 dark:bg-emerald-700 hover:bg-emerald-700 dark:hover:bg-emerald-600",
-          primary:
-            "bg-sky-600 dark:bg-sky-700 hover:bg-sky-700 dark:hover:bg-sky-600",
-          secondary:
-            "bg-gray-600 dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600",
-          danger:
-            "bg-red-600 dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-600",
-          warning:
-            "bg-yellow-600 dark:bg-yellow-700 hover:bg-yellow-700 dark:hover:bg-yellow-600",
+            "bg-emerald-600 hover:bg-emerald-700 dark:hover:bg-emerald-500",
+          primary: "bg-sky-600 hover:bg-sky-700 dark:hover:bg-sky-500",
+          secondary: "bg-gray-600 hover:bg-gray-700 dark:hover:bg-gray-500",
+          danger: "bg-red-600 hover:bg-red-700 dark:hover:bg-red-500",
+          warning: "bg-yellow-600 hover:bg-yellow-700 dark:hover:bg-yellow-500",
         },
         disabled: {
           true: "cursor-not-allowed !bg-neutral-500 text-neutral-300",
