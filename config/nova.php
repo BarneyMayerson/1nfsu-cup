@@ -8,7 +8,6 @@ use Laravel\Nova\Http\Middleware\DispatchServingNovaEvent;
 use Laravel\Nova\Http\Middleware\HandleInertiaRequests;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Nova License Key
@@ -20,7 +19,7 @@ return [
     |
     */
 
-    'license_key' => env('NOVA_LICENSE_KEY'),
+    "license_key" => env("NOVA_LICENSE_KEY"),
 
     /*
     |--------------------------------------------------------------------------
@@ -33,7 +32,7 @@ return [
     |
     */
 
-    'name' => env('NOVA_APP_NAME', env('APP_NAME')),
+    "name" => env("NOVA_APP_NAME", env("APP_NAME")),
 
     /*
     |--------------------------------------------------------------------------
@@ -46,7 +45,7 @@ return [
     |
     */
 
-    'domain' => env('NOVA_DOMAIN_NAME', null),
+    "domain" => env("NOVA_DOMAIN_NAME", null),
 
     /*
     |--------------------------------------------------------------------------
@@ -59,7 +58,7 @@ return [
     |
     */
 
-    'path' => '/nova',
+    "path" => "/nova",
 
     /*
     |--------------------------------------------------------------------------
@@ -72,7 +71,7 @@ return [
     |
     */
 
-    'guard' => env('NOVA_GUARD', null),
+    "guard" => env("NOVA_GUARD", null),
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +84,7 @@ return [
     |
     */
 
-    'passwords' => env('NOVA_PASSWORDS', null),
+    "passwords" => env("NOVA_PASSWORDS", null),
 
     /*
     |--------------------------------------------------------------------------
@@ -98,18 +97,14 @@ return [
     |
     */
 
-    'middleware' => [
-        'web',
+    "middleware" => [
+        "web",
         HandleInertiaRequests::class,
         DispatchServingNovaEvent::class,
         BootTools::class,
     ],
 
-    'api_middleware' => [
-        'nova',
-        Authenticate::class,
-        Authorize::class,
-    ],
+    "api_middleware" => ["nova", Authenticate::class, Authorize::class],
 
     /*
     |--------------------------------------------------------------------------
@@ -122,7 +117,7 @@ return [
     |
     */
 
-    'pagination' => 'simple',
+    "pagination" => "simple",
 
     /*
     |--------------------------------------------------------------------------
@@ -135,7 +130,7 @@ return [
     |
      */
 
-    'storage_disk' => env('NOVA_STORAGE_DISK', 'public'),
+    "storage_disk" => env("NOVA_STORAGE_DISK", "public"),
 
     /*
     |--------------------------------------------------------------------------
@@ -148,7 +143,7 @@ return [
     |
     */
 
-    'currency' => 'USD',
+    "currency" => "USD",
 
     /*
     |--------------------------------------------------------------------------
@@ -162,15 +157,15 @@ return [
     |
     */
 
-    // 'brand' => [
-    //     'logo' => resource_path('/img/example-logo.svg'),
+    "brand" => [
+        "logo" => public_path("logos/adm-logo.svg"),
 
-    //     'colors' => [
-    //         "400" => "24, 182, 155, 0.5",
-    //         "500" => "24, 182, 155",
-    //         "600" => "24, 182, 155, 0.75",
-    //     ]
-    // ],
+        // "colors" => [
+        //     "400" => "24, 182, 155, 0.5",
+        //     "500" => "24, 182, 155",
+        //     "600" => "24, 182, 155, 0.75",
+        // ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -183,8 +178,8 @@ return [
     |
     */
 
-    'actions' => [
-        'resource' => ActionResource::class,
+    "actions" => [
+        "resource" => ActionResource::class,
     ],
 
     /*
@@ -198,9 +193,8 @@ return [
     |
     */
 
-    'impersonation' => [
-        'started' => '/',
-        'stopped' => '/',
+    "impersonation" => [
+        "started" => "/",
+        "stopped" => "/",
     ],
-
 ];
