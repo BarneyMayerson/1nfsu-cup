@@ -3,6 +3,7 @@
 /public/build
 /public/hot
 /public/storage
+/public/vendor
 /storage/*.key
 /vendor
 .env
@@ -18,5 +19,5 @@ yarn-error.log
 /.idea
 /.vscode
 todo.txt
-_ide_helper.php
+_ide_help*.php
 
