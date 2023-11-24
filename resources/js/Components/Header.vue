@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from "vue";
+import { computed, inject } from "vue";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { usePage } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
@@ -15,7 +15,8 @@ import BellIcon from "@/Components/Shared/Icons/BellIcon.vue";
 import Avatar from "@/Components/User/Avatar.vue";
 import mainMenuItems from "@/menus/mainMenuItems";
 
-const currentUser = computed(() => usePage().props.auth.user);
+const currentUser = inject("authUser", null);
+
 const isAuth = computed(() => Boolean(currentUser.value));
 const isHome = computed(() => usePage().props.isHome);
 </script>

@@ -1,19 +1,18 @@
 <script setup>
+import { inject } from "vue";
 import { Head, Link } from "@inertiajs/vue3";
 import { route } from "momentum-trail";
 import AuthUserTopSection from "@/Components/User/AuthUserTopSection.vue";
 import AuthUserSidebarMenu from "@/Navigations/AuthUserSidebarMenu.vue";
 import Button from "@/Components/Shared/Button.vue";
 
-const props = defineProps({
-  user: Object,
-});
+const user = inject("authUser", null);
 </script>
 
 <template>
   <Head title="Account settings" />
   <div class="container mx-auto">
-    <AuthUserTopSection :user="props.user" />
+    <AuthUserTopSection :user="user" />
 
     <div
       class="-mx-4 mt-4 flex flex-col gap-4 rounded border border-gray-600/10 bg-gray-100 px-4 py-6 dark:border-gray-600/50 dark:bg-gray-900/90 dark:bg-sky-900 md:flex-row md:gap-6"

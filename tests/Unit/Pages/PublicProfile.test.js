@@ -42,8 +42,6 @@ describe("PublicProfile", () => {
       (country) => country.code === user.country
     ).name;
 
-    console.log(countryListAlpha2[user.country]); // sic!
-
     expect(wrapper.text()).toContain(countryName);
   });
 });

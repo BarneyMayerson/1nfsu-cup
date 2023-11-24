@@ -47,7 +47,13 @@ class HandleInertiaRequests extends Middleware
 
                 return $user
                     ? [
-                        ...$user->only(["id", "name", "email", "merged_name"]),
+                        ...$user->only([
+                            "id",
+                            "name",
+                            "email",
+                            "merged_name",
+                            "country",
+                        ]),
                         "avatar" => $user->getAvatarUrl(),
                     ]
                     : null;

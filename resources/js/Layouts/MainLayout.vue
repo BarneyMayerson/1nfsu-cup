@@ -1,7 +1,13 @@
 <script setup>
+import { computed, provide } from "vue";
+import { usePage } from "@inertiajs/vue3";
 import Header from "@/Components/Header.vue";
 import Footer from "@/Components/Footer.vue";
 import { Modal } from "momentum-modal";
+
+const authUser = computed(() => usePage().props.auth.user);
+
+provide("authUser", authUser);
 </script>
 
 <template>
