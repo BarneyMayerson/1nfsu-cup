@@ -4,8 +4,9 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
-use Laravel\Nova\Fields\Gravatar;
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -24,16 +25,14 @@ class User extends Resource
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = "name";
 
     /**
      * The columns that should be searched.
      *
      * @var array
      */
-    public static $search = [
-        'id', 'name', 'email',
-    ];
+    public static $search = ["id", "name", "email"];
 
     /**
      * Get the fields displayed by the resource.
@@ -46,22 +45,24 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Gravatar::make()->maxWidth(50),
+            Avatar::make()
+                ->maxWidth(50)
+                ->aspect(Image::ASPECT_SQUARE),
 
-            Text::make('Name')
+            Text::make("Name")
                 ->sortable()
-                ->rules('required', 'max:255'),
+                ->rules("required", "max:255"),
 
-            Text::make('Email')
+            Text::make("Email")
                 ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+                ->rules("required", "email", "max:254")
+                ->creationRules("unique:users,email")
+                ->updateRules("unique:users,email,{{resourceId}}"),
 
-            Password::make('Password')
+            Password::make("Password")
                 ->onlyOnForms()
-                ->creationRules('required', Rules\Password::defaults())
-                ->updateRules('nullable', Rules\Password::defaults()),
+                ->creationRules("required", Rules\Password::defaults())
+                ->updateRules("nullable", Rules\Password::defaults()),
         ];
     }
 

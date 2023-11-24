@@ -75,14 +75,21 @@ class User extends Authenticatable
         "email_verified_at" => "datetime",
     ];
 
-    protected function avatar(): Attribute
+    public function getAvatarUrl(): ?string
     {
-        return Attribute::make(
-            get: fn(?string $value) => $value
-                ? Storage::disk("public")->url($value)
-                : null
-        );
+        return $this->avatar
+            ? Storage::disk("public")->url($this->avatar)
+            : null;
     }
+
+    // protected function avatar(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn(?string $value) => $value
+    //             ? Storage::disk("public")->url($value)
+    //             : null
+    //     );
+    // }
 
     protected function mergedName(): Attribute
     {
@@ -112,7 +119,7 @@ class User extends Authenticatable
             "name" => $this->name,
             "mergedName" => $this->merged_name,
             "country" => $this->country,
-            "avatar" => $this->avatar,
+            "avatar" => $this->getAvatarUrl(),
         ];
     }
 
