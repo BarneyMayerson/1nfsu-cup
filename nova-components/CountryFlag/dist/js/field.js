@@ -18,6 +18,53 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FlagCountryField.vue?vue&type=script&setup=true&lang=js":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FlagCountryField.vue?vue&type=script&setup=true&lang=js ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _countries_flag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../countries/flag */ "./resources/js/countries/flag.js");
+/* harmony import */ var _countries_countries_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../countries/countries-list */ "./resources/js/countries/countries-list.js");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  __name: 'FlagCountryField',
+  props: ["fieldValue"],
+  setup: function setup(__props, _ref) {
+    var __expose = _ref.expose;
+    __expose();
+    var props = __props;
+    var country = props.fieldValue ? _countries_countries_list__WEBPACK_IMPORTED_MODULE_1__.countryListAlpha2Array.find(function (country) {
+      return country.code === props.fieldValue;
+    }).name : "Not defined";
+    var flag = props.fieldValue ? (0,_countries_flag__WEBPACK_IMPORTED_MODULE_0__.flagSrc)(props.fieldValue) : null;
+    var __returned__ = {
+      props: props,
+      country: country,
+      flag: flag,
+      get flagSrc() {
+        return _countries_flag__WEBPACK_IMPORTED_MODULE_0__.flagSrc;
+      },
+      get countryListAlpha2Array() {
+        return _countries_countries_list__WEBPACK_IMPORTED_MODULE_1__.countryListAlpha2Array;
+      }
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FormField.vue?vue&type=script&lang=js":
 /*!***************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FormField.vue?vue&type=script&lang=js ***!
@@ -52,10 +99,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/IndexField.vue?vue&type=script&lang=js":
-/*!****************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/IndexField.vue?vue&type=script&lang=js ***!
-  \****************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/IndexField.vue?vue&type=script&setup=true&lang=js":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/IndexField.vue?vue&type=script&setup=true&lang=js ***!
+  \***************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -63,12 +110,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _FlagCountryField_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FlagCountryField.vue */ "./resources/js/components/FlagCountryField.vue");
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  __name: 'IndexField',
   props: ["resourceName", "field"],
-  computed: {
-    fieldValue: function fieldValue() {
-      return this.field.displayedAs || this.field.value;
-    }
+  setup: function setup(__props, _ref) {
+    var __expose = _ref.expose;
+    __expose();
+    var props = __props;
+    var fieldValue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
+      return props.field.displayedAs || props.field.value;
+    });
+    var __returned__ = {
+      props: props,
+      fieldValue: fieldValue,
+      computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
+      FlagCountryField: _FlagCountryField_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
   }
 });
 
@@ -94,6 +161,34 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     index: $props.index,
     field: $props.field
   }, null, 8 /* PROPS */, ["index", "field"]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FlagCountryField.vue?vue&type=template&id=0e19fa0a":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FlagCountryField.vue?vue&type=template&id=0e19fa0a ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+var _hoisted_1 = {
+  "class": "flex items-center space-x-2"
+};
+var _hoisted_2 = ["src"];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_1, [$setup.flag ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+    key: 0,
+    "class": "w-6",
+    src: $setup.flag
+  }, null, 8 /* PROPS */, _hoisted_2)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.country), 1 /* TEXT */)]);
 }
 
 /***/ }),
@@ -153,7 +248,310 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.fieldValue), 1 /* TEXT */);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["FlagCountryField"], {
+    fieldValue: $setup.fieldValue
+  }, null, 8 /* PROPS */, ["fieldValue"]);
+}
+
+/***/ }),
+
+/***/ "./resources/js/countries/countries-list.js":
+/*!**************************************************!*\
+  !*** ./resources/js/countries/countries-list.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   countryListAlpha2: () => (/* binding */ countryListAlpha2),
+/* harmony export */   countryListAlpha2Array: () => (/* binding */ countryListAlpha2Array)
+/* harmony export */ });
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var countryListAlpha2 = {
+  AF: "Afghanistan",
+  AL: "Albania",
+  DZ: "Algeria",
+  AS: "American Samoa",
+  AD: "Andorra",
+  AO: "Angola",
+  AI: "Anguilla",
+  AQ: "Antarctica",
+  AG: "Antigua and Barbuda",
+  AR: "Argentina",
+  AM: "Armenia",
+  AW: "Aruba",
+  AU: "Australia",
+  AT: "Austria",
+  AZ: "Azerbaijan",
+  BS: "Bahamas (the)",
+  BH: "Bahrain",
+  BD: "Bangladesh",
+  BB: "Barbados",
+  BY: "Belarus",
+  BE: "Belgium",
+  BZ: "Belize",
+  BJ: "Benin",
+  BM: "Bermuda",
+  BT: "Bhutan",
+  BO: "Bolivia (Plurinational State of)",
+  BQ: "Bonaire, Sint Eustatius and Saba",
+  BA: "Bosnia and Herzegovina",
+  BW: "Botswana",
+  BV: "Bouvet Island",
+  BR: "Brazil",
+  IO: "British Indian Ocean Territory (the)",
+  BN: "Brunei Darussalam",
+  BG: "Bulgaria",
+  BF: "Burkina Faso",
+  BI: "Burundi",
+  CV: "Cabo Verde",
+  KH: "Cambodia",
+  CM: "Cameroon",
+  CA: "Canada",
+  KY: "Cayman Islands (the)",
+  CF: "Central African Republic (the)",
+  TD: "Chad",
+  CL: "Chile",
+  CN: "China",
+  CX: "Christmas Island",
+  CC: "Cocos (Keeling) Islands (the)",
+  CO: "Colombia",
+  KM: "Comoros (the)",
+  CD: "Congo (the Democratic Republic of the)",
+  CG: "Congo (the)",
+  CK: "Cook Islands (the)",
+  CR: "Costa Rica",
+  HR: "Croatia",
+  CU: "Cuba",
+  CW: "Curaçao",
+  CY: "Cyprus",
+  CZ: "Czechia",
+  CI: "Côte d'Ivoire",
+  DK: "Denmark",
+  DJ: "Djibouti",
+  DM: "Dominica",
+  DO: "Dominican Republic (the)",
+  EC: "Ecuador",
+  EG: "Egypt",
+  SV: "El Salvador",
+  GQ: "Equatorial Guinea",
+  ER: "Eritrea",
+  EE: "Estonia",
+  SZ: "Eswatini",
+  ET: "Ethiopia",
+  FK: "Falkland Islands (the) [Malvinas]",
+  FO: "Faroe Islands (the)",
+  FJ: "Fiji",
+  FI: "Finland",
+  FR: "France",
+  GF: "French Guiana",
+  PF: "French Polynesia",
+  TF: "French Southern Territories (the)",
+  GA: "Gabon",
+  GM: "Gambia (the)",
+  GE: "Georgia",
+  DE: "Germany",
+  GH: "Ghana",
+  GI: "Gibraltar",
+  GR: "Greece",
+  GL: "Greenland",
+  GD: "Grenada",
+  GP: "Guadeloupe",
+  GU: "Guam",
+  GT: "Guatemala",
+  GG: "Guernsey",
+  GN: "Guinea",
+  GW: "Guinea-Bissau",
+  GY: "Guyana",
+  HT: "Haiti",
+  HM: "Heard Island and McDonald Islands",
+  VA: "Holy See (the)",
+  HN: "Honduras",
+  HK: "Hong Kong",
+  HU: "Hungary",
+  IS: "Iceland",
+  IN: "India",
+  ID: "Indonesia",
+  IR: "Iran (Islamic Republic of)",
+  IQ: "Iraq",
+  IE: "Ireland",
+  IM: "Isle of Man",
+  IL: "Israel",
+  IT: "Italy",
+  JM: "Jamaica",
+  JP: "Japan",
+  JE: "Jersey",
+  JO: "Jordan",
+  KZ: "Kazakhstan",
+  KE: "Kenya",
+  KI: "Kiribati",
+  KP: "Korea (the Democratic People's Republic of)",
+  KR: "Korea (the Republic of)",
+  KW: "Kuwait",
+  KG: "Kyrgyzstan",
+  LA: "Lao People's Democratic Republic (the)",
+  LV: "Latvia",
+  LB: "Lebanon",
+  LS: "Lesotho",
+  LR: "Liberia",
+  LY: "Libya",
+  LI: "Liechtenstein",
+  LT: "Lithuania",
+  LU: "Luxembourg",
+  MO: "Macao",
+  MG: "Madagascar",
+  MW: "Malawi",
+  MY: "Malaysia",
+  MV: "Maldives",
+  ML: "Mali",
+  MT: "Malta",
+  MH: "Marshall Islands (the)",
+  MQ: "Martinique",
+  MR: "Mauritania",
+  MU: "Mauritius",
+  YT: "Mayotte",
+  MX: "Mexico",
+  FM: "Micronesia (Federated States of)",
+  MD: "Moldova (the Republic of)",
+  MC: "Monaco",
+  MN: "Mongolia",
+  ME: "Montenegro",
+  MS: "Montserrat",
+  MA: "Morocco",
+  MZ: "Mozambique",
+  MM: "Myanmar",
+  NA: "Namibia",
+  NR: "Nauru",
+  NP: "Nepal",
+  NL: "Netherlands (the)",
+  NC: "New Caledonia",
+  NZ: "New Zealand",
+  NI: "Nicaragua",
+  NE: "Niger (the)",
+  NG: "Nigeria",
+  NU: "Niue",
+  NF: "Norfolk Island",
+  MP: "Northern Mariana Islands (the)",
+  NO: "Norway",
+  OM: "Oman",
+  PK: "Pakistan",
+  PW: "Palau",
+  PS: "Palestine, State of",
+  PA: "Panama",
+  PG: "Papua New Guinea",
+  PY: "Paraguay",
+  PE: "Peru",
+  PH: "Philippines (the)",
+  PN: "Pitcairn",
+  PL: "Poland",
+  PT: "Portugal",
+  PR: "Puerto Rico",
+  QA: "Qatar",
+  MK: "Republic of North Macedonia",
+  RO: "Romania",
+  RU: "Russian Federation (the)",
+  RW: "Rwanda",
+  RE: "Réunion",
+  BL: "Saint Barthélemy",
+  SH: "Saint Helena, Ascension and Tristan da Cunha",
+  KN: "Saint Kitts and Nevis",
+  LC: "Saint Lucia",
+  MF: "Saint Martin (French part)",
+  PM: "Saint Pierre and Miquelon",
+  VC: "Saint Vincent and the Grenadines",
+  WS: "Samoa",
+  SM: "San Marino",
+  ST: "Sao Tome and Principe",
+  SA: "Saudi Arabia",
+  SN: "Senegal",
+  RS: "Serbia",
+  SC: "Seychelles",
+  SL: "Sierra Leone",
+  SG: "Singapore",
+  SX: "Sint Maarten (Dutch part)",
+  SK: "Slovakia",
+  SI: "Slovenia",
+  SB: "Solomon Islands",
+  SO: "Somalia",
+  ZA: "South Africa",
+  GS: "South Georgia and the South Sandwich Islands",
+  SS: "South Sudan",
+  ES: "Spain",
+  LK: "Sri Lanka",
+  SD: "Sudan (the)",
+  SR: "Suriname",
+  SJ: "Svalbard and Jan Mayen",
+  SE: "Sweden",
+  CH: "Switzerland",
+  SY: "Syrian Arab Republic",
+  TW: "Taiwan",
+  TJ: "Tajikistan",
+  TZ: "Tanzania, United Republic of",
+  TH: "Thailand",
+  TL: "Timor-Leste",
+  TG: "Togo",
+  TK: "Tokelau",
+  TO: "Tonga",
+  TT: "Trinidad and Tobago",
+  TN: "Tunisia",
+  TR: "Turkey",
+  TM: "Turkmenistan",
+  TC: "Turks and Caicos Islands (the)",
+  TV: "Tuvalu",
+  UG: "Uganda",
+  UA: "Ukraine",
+  AE: "United Arab Emirates (the)",
+  GB: "United Kingdom of Great Britain and Northern Ireland (the)",
+  UM: "United States Minor Outlying Islands (the)",
+  US: "United States of America (the)",
+  UY: "Uruguay",
+  UZ: "Uzbekistan",
+  VU: "Vanuatu",
+  VE: "Venezuela (Bolivarian Republic of)",
+  VN: "Viet Nam",
+  VG: "Virgin Islands (British)",
+  VI: "Virgin Islands (U.S.)",
+  WF: "Wallis and Futuna",
+  EH: "Western Sahara",
+  YE: "Yemen",
+  ZM: "Zambia",
+  ZW: "Zimbabwe",
+  AX: "Åland Islands"
+};
+var countryListAlpha2Array = Object.entries(countryListAlpha2).map(function (_ref) {
+  var _ref2 = _slicedToArray(_ref, 2),
+    code = _ref2[0],
+    name = _ref2[1];
+  return {
+    code: code,
+    name: name
+  };
+});
+
+
+/***/ }),
+
+/***/ "./resources/js/countries/flag.js":
+/*!****************************************!*\
+  !*** ./resources/js/countries/flag.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   flagSrc: () => (/* binding */ flagSrc)
+/* harmony export */ });
+function flagSrc(code) {
+  var imagesPath = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "/storage/static/flags/";
+  var ext = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : ".svg";
+  return imagesPath + code.toLowerCase() + ext;
 }
 
 /***/ }),
@@ -1738,6 +2136,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/components/FlagCountryField.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/FlagCountryField.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FlagCountryField_vue_vue_type_template_id_0e19fa0a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FlagCountryField.vue?vue&type=template&id=0e19fa0a */ "./resources/js/components/FlagCountryField.vue?vue&type=template&id=0e19fa0a");
+/* harmony import */ var _FlagCountryField_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FlagCountryField.vue?vue&type=script&setup=true&lang=js */ "./resources/js/components/FlagCountryField.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _home_ian_PhpProjects_1nfsu_cup_nova_components_CountryFlag_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_ian_PhpProjects_1nfsu_cup_nova_components_CountryFlag_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_FlagCountryField_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_FlagCountryField_vue_vue_type_template_id_0e19fa0a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/FlagCountryField.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/components/FormField.vue":
 /*!***********************************************!*\
   !*** ./resources/js/components/FormField.vue ***!
@@ -1778,14 +2204,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IndexField.vue?vue&type=template&id=9e63f81a */ "./resources/js/components/IndexField.vue?vue&type=template&id=9e63f81a");
-/* harmony import */ var _IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexField.vue?vue&type=script&lang=js */ "./resources/js/components/IndexField.vue?vue&type=script&lang=js");
+/* harmony import */ var _IndexField_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexField.vue?vue&type=script&setup=true&lang=js */ "./resources/js/components/IndexField.vue?vue&type=script&setup=true&lang=js");
 /* harmony import */ var _home_ian_PhpProjects_1nfsu_cup_nova_components_CountryFlag_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_home_ian_PhpProjects_1nfsu_cup_nova_components_CountryFlag_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/IndexField.vue"]])
+const __exports__ = /*#__PURE__*/(0,_home_ian_PhpProjects_1nfsu_cup_nova_components_CountryFlag_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_IndexField_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/IndexField.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -1810,6 +2236,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/FlagCountryField.vue?vue&type=script&setup=true&lang=js":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/FlagCountryField.vue?vue&type=script&setup=true&lang=js ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlagCountryField_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlagCountryField_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./FlagCountryField.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FlagCountryField.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/FormField.vue?vue&type=script&lang=js":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/FormField.vue?vue&type=script&lang=js ***!
@@ -1826,18 +2268,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/IndexField.vue?vue&type=script&lang=js":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/IndexField.vue?vue&type=script&lang=js ***!
-  \************************************************************************/
+/***/ "./resources/js/components/IndexField.vue?vue&type=script&setup=true&lang=js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/IndexField.vue?vue&type=script&setup=true&lang=js ***!
+  \***********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./IndexField.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/IndexField.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./IndexField.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/IndexField.vue?vue&type=script&setup=true&lang=js");
  
 
 /***/ }),
@@ -1854,6 +2296,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DetailField_vue_vue_type_template_id_0224618e__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DetailField_vue_vue_type_template_id_0224618e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DetailField.vue?vue&type=template&id=0224618e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/DetailField.vue?vue&type=template&id=0224618e");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FlagCountryField.vue?vue&type=template&id=0e19fa0a":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/FlagCountryField.vue?vue&type=template&id=0e19fa0a ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlagCountryField_vue_vue_type_template_id_0e19fa0a__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FlagCountryField_vue_vue_type_template_id_0e19fa0a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./FlagCountryField.vue?vue&type=template&id=0e19fa0a */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FlagCountryField.vue?vue&type=template&id=0e19fa0a");
 
 
 /***/ }),

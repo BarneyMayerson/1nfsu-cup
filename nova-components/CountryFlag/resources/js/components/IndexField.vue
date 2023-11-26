@@ -1,15 +1,11 @@
-<template>
-  <span>{{ fieldValue }}</span>
-</template>
+<script setup>
+import { computed, defineProps } from "vue";
+import FlagCountryField from "./FlagCountryField.vue";
 
-<script>
-export default {
-  props: ["resourceName", "field"],
-
-  computed: {
-    fieldValue() {
-      return this.field.displayedAs || this.field.value;
-    },
-  },
-};
+const props = defineProps(["resourceName", "field"]);
+const fieldValue = computed(() => props.field.displayedAs || props.field.value);
 </script>
+
+<template>
+  <FlagCountryField :fieldValue="fieldValue" />
+</template>
