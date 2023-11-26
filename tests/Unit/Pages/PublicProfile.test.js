@@ -2,10 +2,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { shallowMount } from "@vue/test-utils";
 import PublicProfile from "@/Pages/PublicProfile.vue";
 import Avatar from "@/Components/User/Avatar.vue";
-import {
-  countryListAlpha2Array,
-  countryListAlpha2,
-} from "@/Countries/countries-list";
+import { countryListAlpha2Array } from "@/Countries/countries-list";
 
 describe("PublicProfile", () => {
   let wrapper = null;
