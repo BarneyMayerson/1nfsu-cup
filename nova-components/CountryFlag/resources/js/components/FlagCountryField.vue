@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps } from "vue";
 import { flagSrc } from "../countries/flag";
 import { countryListAlpha2Array } from "../countries/countries-list";
 

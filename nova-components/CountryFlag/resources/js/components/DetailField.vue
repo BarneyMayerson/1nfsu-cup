@@ -1,9 +1,13 @@
-<template>
-  <PanelItem :index="index" :field="field" />
-</template>
+<script setup>
+import FlagCountryField from "./FlagCountryField.vue";
 
-<script>
-export default {
-  props: ['index', 'resource', 'resourceName', 'resourceId', 'field'],
-}
+defineProps(["index", "resource", "resourceName", "resourceId", "field"]);
 </script>
+
+<template>
+  <PanelItem :index="index" :field="field">
+    <template #value>
+      <FlagCountryField :field-value="field.value" />
+    </template>
+  </PanelItem>
+</template>

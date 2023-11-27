@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineProps } from "vue";
+import { computed } from "vue";
 import FlagCountryField from "./FlagCountryField.vue";
 
 const props = defineProps(["resourceName", "field"]);
