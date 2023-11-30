@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\Avatar;
+use Laravel\Nova\Fields\Country;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Password;
@@ -48,9 +49,12 @@ class User extends Resource
 
             Avatar::make()
                 ->maxWidth(50)
+                ->prunable()
                 ->aspect(Image::ASPECT_SQUARE),
 
             CountryFlag::make("Country"),
+
+            // Country::make("Country"),
 
             Text::make("Name")
                 ->sortable()
