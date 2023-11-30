@@ -129,6 +129,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         label: label
       };
     });
+    this.currentField.nullable = true;
+    this.currentField.searchable = true;
+    this.currentField.placeholder = this.__("Choose a country");
     if (this.field.value) {
       var selectedOption = lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(this.field.options, function (v) {
         return v.value == _this.field.value;

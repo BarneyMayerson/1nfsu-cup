@@ -76,6 +76,9 @@ export default {
     this.currentField.options = Object.entries(countryListAlpha2).map(
       ([value, label]) => ({ value, label })
     );
+    this.currentField.nullable = true;
+    this.currentField.searchable = true;
+    this.currentField.placeholder = this.__("Choose a country");
 
     if (this.field.value) {
       let selectedOption = find(
