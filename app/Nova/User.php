@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Filters\UserCountryFilter;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\Avatar;
@@ -54,13 +55,6 @@ class User extends Resource
 
             CountryFlag::make("Country")->help("Country you're from"),
 
-            Country::make("Country")
-                ->filterable()
-                ->hideFromIndex()
-                ->hideFromDetail()
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
-
             Text::make("Name")
                 ->sortable()
                 ->rules("required", "max:255"),
@@ -97,7 +91,7 @@ class User extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [new UserCountryFilter()];
     }
 
     /**
