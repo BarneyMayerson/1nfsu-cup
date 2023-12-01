@@ -52,9 +52,14 @@ class User extends Resource
                 ->prunable()
                 ->aspect(Image::ASPECT_SQUARE),
 
-            CountryFlag::make("Country"),
+            CountryFlag::make("Country")->help("Country you're from"),
 
-            // Country::make("Country"),
+            Country::make("Country")
+                ->filterable()
+                ->hideFromIndex()
+                ->hideFromDetail()
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
 
             Text::make("Name")
                 ->sortable()
