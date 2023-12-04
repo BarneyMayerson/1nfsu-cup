@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Nova\Dashboards\Main;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
@@ -56,7 +57,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     protected function dashboards()
     {
-        return [new \App\Nova\Dashboards\Main()];
+        return [
+            Main::make()->canSee(fn($request) => $request->user()->isAdmin()),
+        ];
     }
 
     /**

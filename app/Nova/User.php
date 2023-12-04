@@ -6,7 +6,7 @@ use App\Nova\Filters\UserCountryFilter;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\Avatar;
-use Laravel\Nova\Fields\Country;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Password;
@@ -64,6 +64,8 @@ class User extends Resource
                 ->rules("required", "email", "max:254")
                 ->creationRules("unique:users,email")
                 ->updateRules("unique:users,email,{{resourceId}}"),
+
+            Boolean::make("Admin", "is_admin"),
 
             Password::make("Password")
                 ->onlyOnForms()

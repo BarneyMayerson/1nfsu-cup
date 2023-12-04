@@ -82,15 +82,6 @@ class User extends Authenticatable
             : null;
     }
 
-    // protected function avatar(): Attribute
-    // {
-    //     return Attribute::make(
-    //         get: fn(?string $value) => $value
-    //             ? Storage::disk("public")->url($value)
-    //             : null
-    //     );
-    // }
-
     protected function mergedName(): Attribute
     {
         return Attribute::make(
