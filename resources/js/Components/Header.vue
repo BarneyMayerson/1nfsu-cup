@@ -100,8 +100,12 @@ const isHome = computed(() => usePage().props.isHome);
               <GenericMenuItem
                 @click="close()"
                 :href="route('settings.account.edit')"
-                >Settings</GenericMenuItem
               >
+                Settings
+              </GenericMenuItem>
+              <GenericMenuItem @click="close()" :href="route('cabinet.index')">
+                Cabinet
+              </GenericMenuItem>
               <GenericMenuItem
                 @click="close()"
                 :href="route('logout')"

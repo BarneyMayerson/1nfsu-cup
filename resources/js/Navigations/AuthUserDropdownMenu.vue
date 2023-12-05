@@ -43,6 +43,9 @@ const authUser = computed(() => usePage().props.auth.user);
         <DropdownItem :is="Link" :href="route('settings.profile.edit')">
           Settings
         </DropdownItem>
+        <DropdownItem :is="Link" :href="route('cabinet.index')">
+          Cabinet
+        </DropdownItem>
       </DropdownItemsGroup>
 
       <DropdownItemsGroup>
