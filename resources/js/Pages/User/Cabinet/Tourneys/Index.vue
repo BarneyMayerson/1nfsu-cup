@@ -1,16 +1,12 @@
 <script setup>
-import { inject } from "vue";
 import { Head } from "@inertiajs/vue3";
 import CabinetSidebarMenu from "@/Navigations/CabinetSidebarMenu.vue";
-
-const user = inject("authUser", null);
 </script>
 
 <template>
-  <Head title="Your cabinet" />
-
+  <Head title="Your tourneys" />
   <div class="container mx-auto">
-    <h2 class="text-2xl font-semibold">Cabinet</h2>
+    <h2 class="text-2xl font-semibold">Cabinet :: Your tourneys</h2>
     <div
       class="-mx-4 mt-4 flex flex-col gap-4 rounded border border-gray-600/10 bg-gray-100 px-4 py-6 dark:border-gray-600/50 dark:bg-gray-900/90 dark:bg-sky-900 md:flex-row md:gap-6"
     >
@@ -19,7 +15,7 @@ const user = inject("authUser", null);
       >
         <CabinetSidebarMenu />
       </div>
-      <main class="grow">The remaining stuff</main>
+      <main class="grow">Tourney index page goes here..</main>
     </div>
   </div>
 </template>
