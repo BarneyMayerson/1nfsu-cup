@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\User\Cabinet\Tourney;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -29,5 +30,26 @@ class CreateTest extends TestCase
         $this->signIn();
 
         $this->get("/cabinet/tourneys/create")->assertOk();
+    }
+
+    /** @test */
+    function user_can_create_a_tourney()
+    {
+        $user = User::factory()->create();
+        $this->signIn($user);
+
+        $attributes = [
+            "name" => "Circuit #1",
+            "track_id" => "10010",
+            "room" => "TOURNEY",
+            "started_at" => now()->addDay(10),
+            "signup_time" => "30",
+            "description" => "",
+        ];
+
+        $this->post("/cabinet/tourneys", $attributes)->assertRedirect(
+            "/cabinet/tourneys"
+        );
+        $this->assertDatabaseCount("tourneys", 1);
     }
 }
