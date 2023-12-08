@@ -25,7 +25,7 @@ return new class extends Migration {
                 ->nullOnDelete();
             $table->string("supervisor_username", 16);
             $table->string("status", 20)->default("planned");
-            $table->unsignedInteger("season_index");
+            $table->unsignedInteger("season_index")->default(1);
             $table->text("description")->nullable();
             $table->timestamps();
         });
