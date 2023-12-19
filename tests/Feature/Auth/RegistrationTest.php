@@ -2,15 +2,13 @@
 
 use App\Providers\RouteServiceProvider;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
-
-test('registration screen can be rendered', function () {
+test("registration screen can be rendered", function () {
     $response = $this->get("/register");
 
     $response->assertStatus(200);
 });
 
-test('new users can register', function () {
+test("new users can register", function () {
     $response = $this->post("/register", [
         "name" => "Test Name",
         "email" => "test@example.com",

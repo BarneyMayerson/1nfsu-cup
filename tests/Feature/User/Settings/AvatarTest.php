@@ -4,9 +4,7 @@ use App\Models\User;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
-
-test('user can add an avatar', function () {
+test("user can add an avatar", function () {
     Storage::fake("public");
 
     /** @var User $user */
@@ -25,7 +23,7 @@ test('user can add an avatar', function () {
     Storage::disk("public")->assertExists($user->getRawOriginal("avatar"));
 });
 
-test('user can remove own avatar', function () {
+test("user can remove own avatar", function () {
     Storage::fake("public");
 
     /** @var User $user */
@@ -49,31 +47,34 @@ test('user can remove own avatar', function () {
     Storage::disk("public")->assertMissing($filePath);
 });
 
-test('previous avatar file is removed when user select another one', function () {
-    Storage::fake("public");
+test(
+    "previous avatar file is removed when user select another one",
+    function () {
+        Storage::fake("public");
 
-    /** @var User $user */
-    $user = User::factory()->create();
-    $this->signIn($user);
+        /** @var User $user */
+        $user = User::factory()->create();
+        $this->signIn($user);
 
-    $avatar = UploadedFile::fake()->image("image.jpg");
+        $avatar = UploadedFile::fake()->image("image.jpg");
 
-    $this->post("settings/profile/avatar", compact("avatar"));
+        $this->post("settings/profile/avatar", compact("avatar"));
 
-    $user->refresh();
+        $user->refresh();
 
-    $filePath = $user->getRawOriginal("avatar");
+        $filePath = $user->getRawOriginal("avatar");
 
-    Storage::disk("public")->assertExists($filePath);
+        Storage::disk("public")->assertExists($filePath);
 
-    $newAvatar = UploadedFile::fake()->image("new-image.jpg");
+        $newAvatar = UploadedFile::fake()->image("new-image.jpg");
 
-    $this->post("settings/profile/avatar", [
-        "avatar" => $newAvatar,
-    ]);
+        $this->post("settings/profile/avatar", [
+            "avatar" => $newAvatar,
+        ]);
 
-    $user->refresh();
+        $user->refresh();
 
-    Storage::disk("public")->assertMissing($filePath);
-    Storage::disk("public")->assertExists($user->getRawOriginal("avatar"));
-});
+        Storage::disk("public")->assertMissing($filePath);
+        Storage::disk("public")->assertExists($user->getRawOriginal("avatar"));
+    }
+);

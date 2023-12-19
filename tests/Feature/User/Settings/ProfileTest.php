@@ -2,19 +2,17 @@
 
 use App\Models\User;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
-
-test('guest cannot visit profile page', function () {
+test("guest cannot visit profile page", function () {
     $this->get("settings/profile")->assertRedirect("login");
 });
 
-test('authenticated user can visit profile page', function () {
+test("authenticated user can visit profile page", function () {
     $this->signIn();
 
     $this->get("settings/profile")->assertOk();
 });
 
-test('user can change name', function () {
+test("user can change name", function () {
     $user = User::factory()->create();
 
     $this->signIn($user);
@@ -31,7 +29,7 @@ test('user can change name', function () {
     $this->assertDatabaseMissing("users", ["name" => $oldName]);
 });
 
-test('name must be unique', function () {
+test("name must be unique", function () {
     User::factory()->create([
         "name" => "John Doe",
     ]);
@@ -46,7 +44,7 @@ test('name must be unique', function () {
     $response->assertSessionHasErrors("name");
 });
 
-test('user can change country', function () {
+test("user can change country", function () {
     $user = User::factory()->create();
 
     $this->signIn($user);

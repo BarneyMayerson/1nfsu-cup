@@ -11,10 +11,7 @@
 |
 */
 
-uses(
-    Tests\TestCase::class,
-    // Illuminate\Foundation\Testing\RefreshDatabase::class,
-)->in('Feature');
+uses(Tests\TestCase::class)->in("Feature", "Unit");
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +24,7 @@ uses(
 |
 */
 
-expect()->extend('toBeOne', function () {
+expect()->extend("toBeOne", function () {
     return $this->toBe(1);
 });
 

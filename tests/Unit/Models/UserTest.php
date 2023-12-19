@@ -1,8 +1,11 @@
 <?php
 
 use App\Models\User;
+use Tests\TestCase;
 
-it('may have an avatar', function () {
+it("may have an avatar", function () {
+    $r = User::factory()->make();
+
     $user = User::factory()->make([
         "avatar" => "path-to-avatar",
     ]);
@@ -10,7 +13,7 @@ it('may have an avatar', function () {
     expect($user->avatar)->not->toBeEmpty();
 });
 
-it('has valid merged name', function () {
+it("has valid merged name", function () {
     $user = User::factory()->make([
         "name" => "John Doe Junior",
     ]);
@@ -18,7 +21,7 @@ it('has valid merged name', function () {
     expect($user->merged_name)->toEqual("JohnDoeJunior");
 });
 
-it('has valid pure name', function () {
+it("has valid pure name", function () {
     $user = User::factory()->make([
         "name" => "John Doe Junior",
     ]);
@@ -26,7 +29,7 @@ it('has valid pure name', function () {
     expect($user->pure_name)->toEqual("johndoejunior");
 });
 
-it('detects the admin', function () {
+it("detects the admin", function () {
     $user = User::factory()
         ->admin()
         ->make();
@@ -34,7 +37,7 @@ it('detects the admin', function () {
     expect($user->isAdmin())->toBeTrue();
 });
 
-it('returns information attribute array', function () {
+it("returns information attribute array", function () {
     $user = User::factory()->make();
 
     $infoAttributes = $user->infoAttributes();

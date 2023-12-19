@@ -2,9 +2,7 @@
 
 use App\Models\User;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
-
-test('user can delete own account', function () {
+test("user can delete own account", function () {
     $user = User::factory()->create();
     $this->signIn($user);
 

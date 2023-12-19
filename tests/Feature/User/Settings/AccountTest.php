@@ -2,19 +2,17 @@
 
 use App\Models\User;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
-
-test('guest cannot visit account page', function () {
+test("guest cannot visit account page", function () {
     $this->get("settings/account")->assertRedirect("login");
 });
 
-test('authenticated user can visit account page', function () {
+test("authenticated user can visit account page", function () {
     $this->signIn();
 
     $this->get("settings/account")->assertOk();
 });
 
-test('user can change email', function () {
+test("user can change email", function () {
     $user = User::factory()->create();
 
     $this->signIn($user);
@@ -30,7 +28,7 @@ test('user can change email', function () {
     $this->assertDatabaseMissing("users", ["email" => $oldMail]);
 });
 
-test('user can change name', function () {
+test("user can change name", function () {
     $user = User::factory()->create();
 
     $this->signIn($user);

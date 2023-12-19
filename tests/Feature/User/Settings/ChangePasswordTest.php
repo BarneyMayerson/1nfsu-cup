@@ -3,9 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
-
-test('user can change own password', function () {
+test("user can change own password", function () {
     $this->signIn();
 
     $attributes = [

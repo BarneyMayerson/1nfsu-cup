@@ -4,15 +4,13 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 
-uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
-
-test('login screen can be rendered', function () {
+test("login screen can be rendered", function () {
     $response = $this->get("/login");
 
     $response->assertStatus(200);
 });
 
-test('users can authenticate using the login screen', function () {
+test("users can authenticate using the login screen", function () {
     $user = User::factory()->create();
 
     $response = $this->post("/login", [
@@ -24,7 +22,7 @@ test('users can authenticate using the login screen', function () {
     $response->assertRedirect(RouteServiceProvider::HOME);
 });
 
-test('users can not authenticate with invalid password', function () {
+test("users can not authenticate with invalid password", function () {
     $user = User::factory()->create();
 
     $this->post("/login", [
@@ -35,7 +33,7 @@ test('users can not authenticate with invalid password', function () {
     $this->assertGuest();
 });
 
-test('users can log out', function () {
+test("users can log out", function () {
     $user = User::factory()->create();
 
     Auth::login($user);
@@ -46,7 +44,7 @@ test('users can log out', function () {
     $response->assertRedirect("/");
 });
 
-test('only authenticated users can log out', function () {
+test("only authenticated users can log out", function () {
     expect(Auth::guest())->toBeTrue();
 
     $this->post("/logout")->assertRedirect("/login");
