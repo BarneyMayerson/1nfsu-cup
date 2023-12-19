@@ -1,17 +1,9 @@
 <?php
 
-namespace Tests\Feature\Frontend;
-
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class TourneysIndexTest extends TestCase
-{
-    /** @test */
-    function tourneys_index_page_can_be_rendered(): void
-    {
-        $response = $this->get("/tourneys");
+test('tourneys index page can be rendered', function () {
+    $response = $this->get("/tourneys");
 
-        $response->assertStatus(200);
-    }
-}
+    $response->assertStatus(200);
+});

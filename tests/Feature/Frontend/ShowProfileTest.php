@@ -1,22 +1,13 @@
 <?php
 
-namespace Tests\Feature\Frontend;
-
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class ShowProfileTest extends TestCase
-{
-    use RefreshDatabase;
+uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-    /** @test */
-    function user_profile_page_can_be_rendered()
-    {
-        $user = User::factory()->create([
-            "name" => "John Doe",
-        ]);
+test('user profile page can be rendered', function () {
+    $user = User::factory()->create([
+        "name" => "John Doe",
+    ]);
 
-        $this->get("profile/{$user->name}")->assertOk();
-    }
-}
+    $this->get("profile/{$user->name}")->assertOk();
+});

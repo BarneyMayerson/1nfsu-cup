@@ -1,80 +1,63 @@
 <?php
 
-namespace Tests\Feature\User\Settings;
-
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class ProfileTest extends TestCase
-{
-    use RefreshDatabase;
+uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-    /** @test */
-    function guest_cannot_visit_profile_page()
-    {
-        $this->get("settings/profile")->assertRedirect("login");
-    }
+test('guest cannot visit profile page', function () {
+    $this->get("settings/profile")->assertRedirect("login");
+});
 
-    /** @test */
-    function authenticated_user_can_visit_profile_page()
-    {
-        $this->signIn();
+test('authenticated user can visit profile page', function () {
+    $this->signIn();
 
-        $this->get("settings/profile")->assertOk();
-    }
+    $this->get("settings/profile")->assertOk();
+});
 
-    /** @test */
-    function user_can_change_name()
-    {
-        $user = User::factory()->create();
+test('user can change name', function () {
+    $user = User::factory()->create();
 
-        $this->signIn($user);
+    $this->signIn($user);
 
-        $oldName = $user->name;
+    $oldName = $user->name;
 
-        $attributes = [
-            "name" => "New Name",
-        ];
+    $attributes = [
+        "name" => "New Name",
+    ];
 
-        $this->put("settings/profile", $attributes);
+    $this->put("settings/profile", $attributes);
 
-        $this->assertDatabaseHas("users", $attributes);
-        $this->assertDatabaseMissing("users", ["name" => $oldName]);
-    }
+    $this->assertDatabaseHas("users", $attributes);
+    $this->assertDatabaseMissing("users", ["name" => $oldName]);
+});
 
-    /** @test */
-    function name_must_be_unique()
-    {
-        User::factory()->create([
-            "name" => "John Doe",
-        ]);
+test('name must be unique', function () {
+    User::factory()->create([
+        "name" => "John Doe",
+    ]);
 
-        $this->signIn();
+    $this->signIn();
 
-        $attributes = [
-            "name" => "John Doe",
-        ];
+    $attributes = [
+        "name" => "John Doe",
+    ];
 
-        $response = $this->put("settings/profile", $attributes);
-        $response->assertSessionHasErrors("name");
-    }
+    $response = $this->put("settings/profile", $attributes);
+    $response->assertSessionHasErrors("name");
+});
 
-    /** @test */
-    function user_can_change_country()
-    {
-        $user = User::factory()->create();
+test('user can change country', function () {
+    $user = User::factory()->create();
 
-        $this->signIn($user);
+    $this->signIn($user);
 
-        $attributes = [
-            "name" => $user->name,
-            "country" => "BE",
-        ];
+    $attributes = [
+        "name" => $user->name,
+        "country" => "BE",
+    ];
 
-        $this->put("settings/profile", $attributes);
+    $this->put("settings/profile", $attributes);
 
-        $this->assertDatabaseHas("users", $attributes);
-        $this->assertDatabaseMissing("users", ["country" => null]);
-    }
-}
+    $this->assertDatabaseHas("users", $attributes);
+    $this->assertDatabaseMissing("users", ["country" => null]);
+});
