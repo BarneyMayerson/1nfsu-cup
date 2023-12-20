@@ -1,11 +1,8 @@
 <?php
 
 use App\Models\User;
-use Tests\TestCase;
 
 it("may have an avatar", function () {
-    $r = User::factory()->make();
-
     $user = User::factory()->make([
         "avatar" => "path-to-avatar",
     ]);
@@ -40,10 +37,9 @@ it("detects the admin", function () {
 it("returns information attribute array", function () {
     $user = User::factory()->make();
 
-    $infoAttributes = $user->infoAttributes();
-
-    expect($infoAttributes)->toHaveKey("name");
-    expect($infoAttributes)->toHaveKey("mergedName");
-    expect($infoAttributes)->toHaveKey("country");
-    expect($infoAttributes)->toHaveKey("avatar");
+    expect($user->infoAttributes())
+        ->toHaveKey("name")
+        ->toHaveKey("mergedName")
+        ->toHaveKey("country")
+        ->toHaveKey("avatar");
 });
