@@ -14,7 +14,9 @@ class TourneysController extends Controller
 {
     public function index(): Response
     {
-        return Inertia::render("User/Cabinet/Tourneys/Index");
+        return Inertia::render("User/Cabinet/Tourneys/Index", [
+            "tourneys" => auth()->user()->tourneys,
+        ]);
     }
 
     public function create(): Modal

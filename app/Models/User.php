@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -74,6 +75,11 @@ class User extends Authenticatable
     protected $casts = [
         "email_verified_at" => "datetime",
     ];
+
+    public function tourneys(): HasMany
+    {
+        return $this->hasMany(Tourney::class, "supervisor_id");
+    }
 
     public function getAvatarUrl(): ?string
     {

@@ -1,6 +1,8 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
 import CabinetSidebarMenu from "@/Navigations/CabinetSidebarMenu.vue";
+
+defineProps(["tourneys"]);
 </script>
 
 <template>
@@ -15,7 +17,16 @@ import CabinetSidebarMenu from "@/Navigations/CabinetSidebarMenu.vue";
       >
         <CabinetSidebarMenu />
       </div>
-      <main class="grow">Tourney index page goes here..</main>
+      <main class="grow">
+        <ul v-if="tourneys">
+          <li v-for="tourney in tourneys" :key="tourney.id">
+            <p>{{ tourney.name }}</p>
+          </li>
+        </ul>
+        <div v-else>
+          <p>There are no tourneys yet.</p>
+        </div>
+      </main>
     </div>
   </div>
 </template>
