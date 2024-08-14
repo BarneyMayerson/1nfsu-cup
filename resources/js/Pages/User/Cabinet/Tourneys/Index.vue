@@ -1,6 +1,8 @@
 <script setup>
-import { Head } from "@inertiajs/vue3";
+import { Head, Link } from "@inertiajs/vue3";
 import CabinetSidebarMenu from "@/Navigations/CabinetSidebarMenu.vue";
+import { route } from "momentum-trail";
+import Button from "@/Components/Shared/Button.vue";
 
 defineProps(["tourneys"]);
 </script>
@@ -8,7 +10,12 @@ defineProps(["tourneys"]);
 <template>
   <Head title="Your tourneys" />
   <div class="container mx-auto">
-    <h2 class="text-2xl font-semibold">Cabinet :: Your tourneys</h2>
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-semibold">Cabinet :: Your tourneys</h2>
+      <Link :href="route('cabinet.tourneys.create')" as="button">
+        <Button>Create Tourney</Button>
+      </Link>
+    </div>
     <div
       class="-mx-4 mt-4 flex flex-col gap-4 rounded border border-gray-600/10 bg-gray-100 px-4 py-6 dark:border-gray-600/50 dark:bg-gray-900/90 dark:bg-sky-900 md:flex-row md:gap-6"
     >
@@ -18,8 +25,19 @@ defineProps(["tourneys"]);
         <CabinetSidebarMenu />
       </div>
       <main class="grow">
+        <div>
+          Play with Image
+          <div class="flex items-center">
+            <div class="inline-flex h-64 w-96 border"></div>
+            <p>Tourney Name</p>
+          </div>
+        </div>
         <ul v-if="tourneys">
-          <li v-for="tourney in tourneys" :key="tourney.id">
+          <li
+            v-for="tourney in tourneys"
+            :key="tourney.id"
+            class="flex items-center"
+          >
             <p>{{ tourney.name }}</p>
           </li>
         </ul>

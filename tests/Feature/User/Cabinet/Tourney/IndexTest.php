@@ -23,7 +23,6 @@ it("should return the correct component", function () {
 
 it("passes user's tourneys to the view", function () {
     $this->signIn();
-    // $tourneys = Tourney::factory(3)->create();
 
     get(route("cabinet.tourneys.index"))->assertInertia(
         fn(AssertableInertia $inertia) => $inertia->has("tourneys")
